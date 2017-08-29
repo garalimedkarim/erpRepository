@@ -1,0 +1,4 @@
+services:
+#    not_connected.example:
+#        class: NotConnectedBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

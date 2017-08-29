@@ -1,0 +1,3 @@
+not_connected_homepage:
+    path:     /
+    defaults: { _controller: NotConnectedBundle:Default:index }
