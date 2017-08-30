@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('NotConnectedBundle:NotConnected:index.html.twig');
+        return $this->render('NotConnectedBundle:NotConnected:login.html.twig');
     }
 }
