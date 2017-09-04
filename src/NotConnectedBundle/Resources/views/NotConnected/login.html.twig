@@ -20,5 +20,10 @@
 
 		</div>
 	</div>
+	
+{% block javascripts %}
+	{{ parent() }}
+	<script src="{{asset('bundles/notconnected/js/login.js')}}" ></script>
+{% endblock %}	
 {% endblock %}
 
