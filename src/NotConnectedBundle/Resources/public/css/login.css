@@ -2,6 +2,13 @@ body{
     background-color: #eee;
 	height: 100%;
 }
+.navbar a{
+	color:#F3EEEB!important;
+}
+
+.navbar a:hover {
+	color:#2C87CF!important;
+}
 
 .container{
 	height: 100%;
@@ -22,6 +29,15 @@ body{
 .btn-connexion{
 	padding:0.1rem 0.5rem 0.5rem 0.5rem!important;
 }  
+
+.btn-primary{
+	background-color:#255EE6!important;
+	color:#F3EEEB!important;
+}
+
+.btn-primary:hover{
+	background-color:#2C87CF!important;
+}
 
   .btn 
   {
