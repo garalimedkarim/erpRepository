@@ -70,8 +70,7 @@ class SecurityController extends Controller
      */
     protected function renderLogin(array $data)
     {
-        return $this->render('@FOSUser/Security/login.html.twig', $data);
-        #return $this->render('NotConnectedBundle:NotConnected:login.html.twig', $data); 
+        return $this->render('NotConnectedBundle:NotConnected:login.html.twig', $data); 
     }
 
     public function checkAction()
