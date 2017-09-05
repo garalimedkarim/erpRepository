@@ -67,3 +67,13 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+    
+# FOS USer Configuration 
+
+fos_user:
+    db_driver: orm 
+    firewall_name: main
+    user_class: NotConnectedBundle\Entity\User
+    from_email:
+            address: "garalimedkarim4@gmail.com"
+            sender_name: "Garali Mohamed Karim"    
