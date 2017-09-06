@@ -34,7 +34,7 @@
 				  </div>
 			</nav>
 			
-			<form class="form-signin">
+			<form action="{{ path("fos_user_security_check") }}" method="post" class="form-signin">
 				<!--<h1 class="form-signin-heading text-muted">Sign In</h1>-->
 				<input name="_username" type="text" class="form-control" placeholder="Pseudo" required="" autofocus="">
 				<input name="_password" type="password" class="form-control" placeholder="Mot de passe" required="">
@@ -49,9 +49,9 @@
 	
 	</div>
 	
-{% block javascripts %}
-	{{ parent() }}
-	<script src="{{asset('bundles/notconnected/js/login.js')}}" ></script>
-{% endblock %}	
+	{% block javascripts %}
+		{{ parent() }}
+		<script src="{{asset('bundles/notconnected/js/login.js')}}" ></script>
+	{% endblock %}	
 {% endblock %}
 

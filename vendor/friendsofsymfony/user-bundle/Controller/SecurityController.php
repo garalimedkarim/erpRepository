@@ -53,11 +53,22 @@ class SecurityController extends Controller
             ? $this->get('security.csrf.token_manager')->getToken('authenticate')->getValue()
             : null;
 
-        return $this->renderLogin(array(
-            'last_username' => $lastUsername,
-            'error' => $error,
-            'csrf_token' => $csrfToken,
-        ));
+        $user = $this->getUser();
+
+
+
+/*        if($user){ 
+                    return $this->renderLogin(array(
+                        'last_username' => $lastUsername,
+                        'error' => $error,
+                        'csrf_token' => $csrfToken,
+                    ));}
+        else*/
+            return $this->render('NotConnectedBundle:NotConnected:login.html.twig', array(
+                'last_username' => $lastUsername,
+                'error' => $error,
+                'csrf_token' => $csrfToken,
+            )); 
     }
 
     /**
@@ -70,11 +81,12 @@ class SecurityController extends Controller
      */
     protected function renderLogin(array $data)
     {
-        return $this->render('NotConnectedBundle:NotConnected:login.html.twig', $data); 
+        return $this->render('@FOSUser/Security/login.html.twig', $data);
+        #return $this->render('NotConnectedBundle:NotConnected:login.html.twig', $data); 
     }
 
     public function checkAction()
-    {
+    {   die("LOOOOOOOOOOGIN CHECK");
         throw new \RuntimeException('You must configure the check path to be handled by the firewall using form_login in your security firewall configuration.');
     }
 
