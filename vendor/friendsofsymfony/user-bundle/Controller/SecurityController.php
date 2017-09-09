@@ -31,7 +31,8 @@ class SecurityController extends Controller
 
         $authErrorKey = Security::AUTHENTICATION_ERROR;
         $lastUsernameKey = Security::LAST_USERNAME;
-
+        echo "lastUsernameKey===".$lastUsernameKey."<br>" ;
+        #print_r($session);
         // get the error if any (works with forward and redirect -- see below)
         if ($request->attributes->has($authErrorKey)) {
             $error = $request->attributes->get($authErrorKey);
@@ -53,22 +54,29 @@ class SecurityController extends Controller
             ? $this->get('security.csrf.token_manager')->getToken('authenticate')->getValue()
             : null;
 
-        $user = $this->getUser();
+if (TRUE === $this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+    die('CONNECTEDDDDD');
+}
+        return $this->renderLogin(array(
+            'last_username' => $lastUsername,
+            'error' => $error,
+            'csrf_token' => $csrfToken,
+        ));
 
+/*      $user = $this->getUser();
 
-
-/*        if($user){ 
-                    return $this->renderLogin(array(
-                        'last_username' => $lastUsername,
-                        'error' => $error,
-                        'csrf_token' => $csrfToken,
-                    ));}
-        else*/
+        if($user){ 
+            return $this->renderLogin(array(
+                'last_username' => $lastUsername,
+                'error' => $error,
+                'csrf_token' => $csrfToken,
+            ));}
+        else
             return $this->render('NotConnectedBundle:NotConnected:login.html.twig', array(
                 'last_username' => $lastUsername,
                 'error' => $error,
                 'csrf_token' => $csrfToken,
-            )); 
+            )); */
     }
 
     /**
