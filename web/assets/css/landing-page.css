@@ -151,6 +151,19 @@ p.copyright {
   margin: 15px 0 0;
 }
 
-.btn-connexion{
-	padding:0.3rem 0.5rem 0.5rem 0.5rem!important;
-} 
+/* .btn-connexion{ */
+	/* padding:0.3rem 0.5rem 0.5rem 0.5rem!important; */
+/* }  */
+
+.align-left{
+	text-align:left;
+}
+
+.bg-color{
+	background-color: #f0f8ff;
+}
+
+.orange_form{
+	background-color:orange;
+	border-radius:5px
+}
