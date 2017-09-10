@@ -17,6 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\Security;
 
+
 class SecurityController extends Controller
 {
     /**
@@ -31,8 +32,7 @@ class SecurityController extends Controller
 
         $authErrorKey = Security::AUTHENTICATION_ERROR;
         $lastUsernameKey = Security::LAST_USERNAME;
-        echo "lastUsernameKey===".$lastUsernameKey."<br>" ;
-        #print_r($session);
+
         // get the error if any (works with forward and redirect -- see below)
         if ($request->attributes->has($authErrorKey)) {
             $error = $request->attributes->get($authErrorKey);
@@ -54,14 +54,14 @@ class SecurityController extends Controller
             ? $this->get('security.csrf.token_manager')->getToken('authenticate')->getValue()
             : null;
 
-if (TRUE === $this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
-    die('CONNECTEDDDDD');
-}
-        return $this->renderLogin(array(
-            'last_username' => $lastUsername,
-            'error' => $error,
-            'csrf_token' => $csrfToken,
-        ));
+        if (TRUE === $this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED'))
+            return $this->redirect($this->generateUrl('home_homepage'));
+        else
+            return $this->renderLogin(array(
+                'last_username' => $lastUsername,
+                'error' => $error,
+                'csrf_token' => $csrfToken,
+            ));
 
 /*      $user = $this->getUser();
 

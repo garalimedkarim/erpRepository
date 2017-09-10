@@ -1,3 +1,7 @@
+home:
+    resource: "@HomeBundle/Resources/config/routing.yml"
+    prefix:   /home
+
 not_connected:
     resource: "@NotConnectedBundle/Resources/config/routing.yml"
     prefix:   /
