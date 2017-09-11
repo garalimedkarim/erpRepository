@@ -349,3 +349,11 @@ footer.sticky-footer {
 @media (min-width: 992px) {
   body.sidenav-toggled footer.sticky-footer {
     width: calc(100% - 55px); } }
+	
+.logged_user{
+	padding-right:20px;
+}
+
+.white{
+	color:white!important;
+}	

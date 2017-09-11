@@ -165,5 +165,6 @@ p.copyright {
 
 .orange_form{
 	background-color:orange;
-	border-radius:5px
+	border-radius:5px;
+	padding-bottom:9px;
 }
