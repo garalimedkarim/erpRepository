@@ -38,14 +38,14 @@
 		  <div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
 			  <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Dashboard">
-				<a class="nav-link" href="#">
+				<a class="nav-link" href="dashbord">
 				  <i class="fa fa-fw fa-dashboard"></i>
 				  <span class="nav-link-text">
 					Dashboard</span>
 				</a>
 			  </li>
 			  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Fournisseurs">
-				<a class="nav-link" href="#">
+				<a class="nav-link" href="fournisseurs">
 				  <i class="fa fa-fw fa fa-fw fa-sitemap"></i>
 				  <span class="nav-link-text">
 					Fournisseurs</span>
@@ -225,17 +225,19 @@
 		<div class="content-wrapper">
 
 		  <div class="container-fluid">
-
-			<!-- Breadcrumbs -->
-			<ol class="breadcrumb">
-			  <li class="breadcrumb-item">
-				<a href="#">Dashboard</a>
-			  </li>
-			  <li class="breadcrumb-item active">My Dashboard</li>
-			</ol>
-
-			<h1>Blank Page</h1>
-
+			{% block title_tab %}
+				<!-- Breadcrumbs -->
+				<ol class="breadcrumb">
+				  <li class="breadcrumb-item">
+					<a href="#">Dashboard</a>
+				  </li>
+				  <li class="breadcrumb-item active">My Dashboard</li>
+				</ol>
+			{% endblock %}
+			
+			{% block body %}
+				<h1>Blank Page</h1>
+			{% endblock %}
 		  </div>
 		  <!-- /.container-fluid -->
 
@@ -275,8 +277,6 @@
 			</div>
 		  </div>
 		</div>
-		{% block body %}	
-		{% endblock %}
 		
 		{% block javascripts %}
 			<!-- Bootstrap core JavaScript -->

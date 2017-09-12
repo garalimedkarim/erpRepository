@@ -1,3 +1,12 @@
 home_homepage:
     path:     /
     defaults: { _controller: HomeBundle:Home:home }
+    
+home_dashbord:
+    path:     /dashbord
+    defaults: { _controller: HomeBundle:Home:dashbord }
+    
+home_fournisseurs:
+    path:     /fournisseurs
+    defaults: { _controller: HomeBundle:Home:fournisseur }    
+    
