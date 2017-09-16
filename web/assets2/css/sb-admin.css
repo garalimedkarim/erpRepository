@@ -356,4 +356,17 @@ footer.sticky-footer {
 
 .white{
 	color:white!important;
+}
+
+.odd{
+	background-color: #f0fff0;
 }	
+
+/* .odd{ */
+	/* color:white; */
+	/* background-color:greenyellow; */
+/* } */
+
+/* .even{ */
+	/* background-color:gold; */
+/* } */
