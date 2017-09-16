@@ -188,4 +188,20 @@
 			Updated yesterday at 11:59 PM
 		</div>
 	</div>
+	
+	<script>
+		$(document).ready(function(){
+			alert('aaa');
+			$('#fournisseurs_item').addClass("active");
+		});	
+	</script>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+		<script>
+		$(document).ready(function(){
+			$('#fournisseurs_item').addClass("active");
+		});	
+		</script>
 {% endblock %}
