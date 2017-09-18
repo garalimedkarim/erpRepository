@@ -370,3 +370,14 @@ footer.sticky-footer {
 /* .even{ */
 	/* background-color:gold; */
 /* } */
+
+.flr{
+	float:right;
+}
+
+.child {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100px;
+}

@@ -12,19 +12,26 @@
 {% block title_tab %}
 	<!-- Breadcrumbs -->
 	<ol class="breadcrumb">
-	  <!-- <li class="breadcrumb-item"> -->
-		<!-- <a href="#">Dashboard</a> -->
-	  <!-- </li> -->
-	  <li class="breadcrumb-item active">Mes Fournisseurs</li>
+		<!-- <li class="breadcrumb-item"> -->
+			<!-- <a href="#">Dashboard</a> -->
+		<!-- </li> -->
+		<li class="breadcrumb-item active">Mes Fournisseurs</li>
+		<li>
+		<a class="flr" href="{{url('home_add_fournisseur')}}">
+			<button type="button" class="btn btn-success">Ajouter un fournisseur</button>
+		</a>
+		</li>
 	</ol>
 {% endblock %}
  
 {% block body %}
-	<center>	<h3 style="color:blue"> LIST FOURNISSEUR </h3> </center>
-	<div class="card mb-3">
-		<div class="card-header">
-			<i class="fa fa-table"></i> Fournisseurs
-		</div>
+	<!-- <div class="card mb-3"> -->
+		<!-- <div class="card-header"> -->
+			<!-- <span><i class="fa fa-table "></i> Fournisseurs</span> -->
+			<!-- <a class="flr" href="#"> -->
+				<!-- <button type="button" class="btn btn-success">Ajouter un fournisseur</button> -->
+			<!-- </a> -->
+		<!-- </div> -->
 		<div class="card-body">
 			<div class="table-responsive">
 				<div id="dataTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
@@ -33,12 +40,12 @@
 							<table class="table table-bordered dataTable" id="dataTable" role="grid" aria-describedby="dataTable_info" style="width: 100%;" width="100%" cellspacing="0">
 								<thead>
 									<tr role="row">
-										<th class="sorting_desc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 153px;" aria-label="Name: activate to sort column ascending" aria-sort="descending">Fournisseur</th>
-										<th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 237px;" aria-label="Position: activate to sort column ascending">Adresse</th>
-										<th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 110px;" aria-label="Office: activate to sort column ascending">Ville</th>
-										<th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 50px;" aria-label="Age: activate to sort column ascending">Age</th>
-										<th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 106px;" aria-label="Start date: activate to sort column ascending">Start date</th>
-										<th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 88px;" aria-label="Salary: activate to sort column ascending">Salary</th>
+										<th class="sorting_desc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Fournisseur: activate to sort column ascending" aria-sort="descending">Fournisseur</th>
+										<th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Position: activate to sort column ascending">Adresse</th>
+										<th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Office: activate to sort column ascending">Ville</th>
+										<th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Age: activate to sort column ascending">Age</th>
+										<th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10%;" aria-label="Start date: activate to sort column ascending">Start date</th>
+										<th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10%;" aria-label="Salary: activate to sort column ascending">Salary</th>
 									</tr>
 								</thead>
 								<tfoot>
@@ -187,7 +194,7 @@
 		<div class="card-footer small text-muted">
 			Updated yesterday at 11:59 PM
 		</div>
-	</div>
+	<!-- </div> -->
 	
 	<script>
 		$(document).ready(function(){
