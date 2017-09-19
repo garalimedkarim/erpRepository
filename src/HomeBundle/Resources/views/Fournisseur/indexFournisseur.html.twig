@@ -1,0 +1,170 @@
+{% extends 'base2.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block title %}
+	{{ parent() }} 
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block title_tab %}
+	<!-- Breadcrumbs -->
+	<ol class="breadcrumb">
+		<!-- <li class="breadcrumb-item"> -->
+			<!-- <a href="#">Dashboard</a> -->
+		<!-- </li> -->
+		<li class="breadcrumb-item active">Mes Fournisseurs</li>
+		<li>
+		<a class="flr" href="{{ path('fournisseur_new') }}">
+			<button type="button" class="btn btn-success btn-sm">Ajouter un fournisseur</button>
+		</a>
+		</li>
+	</ol>
+{% endblock %}
+ 
+{% block body %}
+	<!-- <div class="card mb-3"> -->
+		<!-- <div class="card-header"> -->
+			<!-- <span><i class="fa fa-table "></i> Fournisseurs</span> -->
+			<!-- <a class="flr" href="#"> -->
+				<!-- <button type="button" class="btn btn-success">Ajouter un fournisseur</button> -->
+			<!-- </a> -->
+		<!-- </div> -->
+		<div class="card-body">
+			<div class="table-responsive">
+				<div id="dataTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+					<div class="row">
+						<div class="col-sm-12">
+							<table class="table table-bordered dataTable" id="dataTable" role="grid" aria-describedby="dataTable_info" style="width: 100%;" width="100%" cellspacing="0">
+								<thead>
+									<tr role="row">
+										<!-- <th>Id</th> -->
+										<th>Nomfournisseur</th>
+										<th>Adresse</th>
+										<th>Ville</th>
+										<th>Codetva</th>
+										<!-- <th>Tel</th> -->
+										<!-- <th>Tel2</th> -->
+										<!-- <th>Tel1</th> -->
+										<!-- <th>Fax</th> -->
+										<!-- <th>Contact</th> -->
+										<!-- <th>Gsm</th> -->
+										<!-- <th>Contact1</th> -->
+										<!-- <th>Gsm1</th> -->
+										<!-- <th>Gsm2</th> -->
+										<!-- <th>Contact2</th> -->
+										<!-- <th>Contact3</th> -->
+										<!-- <th>Gsm3</th> -->
+										<th>Echange</th>
+										<th>Modereg</th>
+										<!-- <th>Mail</th> -->
+										<!-- <th>Postal</th> -->
+										<th>Frs</th>
+										<th>Famille</th>
+										<th>Remise</th>
+										<th>Solde</th>
+										<!-- <th>Timbre</th> -->
+										<!-- <th>Idfam</th> -->
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tfoot>
+									<tr>
+										<!-- <th>Id</th> -->
+										<th>Nomfournisseur</th>
+										<th>Adresse</th>
+										<th>Ville</th>
+										<th>Codetva</th>
+										<!-- <th>Tel</th> -->
+										<!-- <th>Tel2</th> -->
+										<!-- <th>Tel1</th> -->
+										<!-- <th>Fax</th> -->
+										<!-- <th>Contact</th> -->
+										<!-- <th>Gsm</th> -->
+										<!-- <th>Contact1</th> -->
+										<!-- <th>Gsm1</th> -->
+										<!-- <th>Gsm2</th> -->
+										<!-- <th>Contact2</th> -->
+										<!-- <th>Contact3</th> -->
+										<!-- <th>Gsm3</th> -->
+										<th>Echange</th>
+										<th>Modereg</th>
+										<!-- <th>Mail</th> -->
+										<!-- <th>Postal</th> -->
+										<th>Frs</th>
+										<th>Famille</th>
+										<th>Remise</th>
+										<th>Solde</th>
+										<!-- <th>Timbre</th> -->
+										<!-- <th>Idfam</th> -->
+										<th>Actions</th>
+									</tr>
+								</tfoot>
+								<tbody>
+									
+									{% for fournisseur in fournisseurs %}
+										<tr role="row" class="{% if loop.index is odd %} odd {% else %} even {% endif%}">
+											<!-- <td><a href="{{ path('fournisseur_show', { 'id': fournisseur.id }) }}">{{ fournisseur.id }}</a></td> -->
+											<td>
+												<a style="text-decoration" href="{{ path('fournisseur_show', { 'id': fournisseur.id }) }}">{{ fournisseur.nomFournisseur }} </a></td>
+											<td>{{ fournisseur.adresse }}</td>
+											<td>{{ fournisseur.ville }}</td>
+											<td>{{ fournisseur.codeTva }}</td>
+											<!-- <td>{{ fournisseur.tel }}</td> -->
+											<!-- <td>{{ fournisseur.tel2 }}</td> -->
+											<!-- <td>{{ fournisseur.tel1 }}</td> -->
+											<!-- <td>{{ fournisseur.fax }}</td> -->
+											<!-- <td>{{ fournisseur.contact }}</td> -->
+											<!-- <td>{{ fournisseur.gsm }}</td> -->
+											<!-- <td>{{ fournisseur.contact1 }}</td> -->
+											<!-- <td>{{ fournisseur.gsm1 }}</td> -->
+											<!-- <td>{{ fournisseur.gsm2 }}</td> -->
+											<!-- <td>{{ fournisseur.contact2 }}</td> -->
+											<!-- <td>{{ fournisseur.contact3 }}</td> -->
+											<!-- <td>{{ fournisseur.gsm3 }}</td> -->
+											<td>{{ fournisseur.echange }}</td>
+											<td>{{ fournisseur.modereg }}</td>
+											<!-- <td>{{ fournisseur.mail }}</td> -->
+											<!-- <td>{{ fournisseur.postal }}</td> -->
+											<td>{{ fournisseur.frs }}</td>
+											<td>{{ fournisseur.famille }}</td>
+											<td>{{ fournisseur.remise }}</td>
+											<td>{{ fournisseur.solde }}</td>
+											<!-- <td>{{ fournisseur.timbre }}</td> -->
+											<!-- <td>{{ fournisseur.idfam }}</td> -->
+											<td style="text-align:center">
+												<!-- <a class="btn btn-primary btn-xs" href="{{ path('fournisseur_show', { 'id': fournisseur.id }) }}"> -->
+													<!-- <span class="fa fa-info-circle" aria-hidden="true"></span> -->
+												<!-- </a> &nbsp; -->
+												<a class="btn btn-warning btn-xs" href="{{ path('fournisseur_edit', { 'id': fournisseur.id }) }}">
+													<span class="fa fa-pencil" aria-hidden="true"></span>
+												</a>												
+											</td>
+										</tr>	
+									{% endfor %}
+
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+<!-- 		<div class="card-footer small text-muted">
+			Updated yesterday at 11:59 PM
+		</div> -->
+	<!-- </div> -->
+	
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+		<script>		
+			$(document).ready(function(){
+				$('#fournisseurs_item').addClass("active");					
+			});	
+		</script>
+{% endblock %}
