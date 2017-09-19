@@ -55,7 +55,7 @@ class SecurityController extends Controller
             : null;
 
         if (TRUE === $this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED'))
-            return $this->redirect($this->generateUrl('home_homepage'));
+            return $this->redirect($this->generateUrl('home_dashbord'));
         else
             return $this->renderLogin(array(
                 'last_username' => $lastUsername,
