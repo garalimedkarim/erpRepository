@@ -8,9 +8,9 @@ home_dashbord:
     
 home_fournisseurs:
     path:     /fournisseurs
-    defaults: { _controller: HomeBundle:Home:fournisseur }  
+    defaults: { _controller: HomeBundle:Fournisseur:fournisseur }  
 
 home_add_fournisseur:
     path:     /fournisseurs/add
-    defaults: { _controller: HomeBundle:Home:addFournisseur }      
+    defaults: { _controller: HomeBundle:Fournisseur:addFournisseur }      
     
