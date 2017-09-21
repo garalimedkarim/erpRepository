@@ -23,53 +23,38 @@
 {% form_theme edit_form 'form_table_layout_fournisseur.html.twig' %}
 <div class="container">
 
-<div style="float:left">
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
 
-    {{ form_end(edit_form) }}
-</div>
-<div style="float:left;margin-left:150px">
-	<!-- <div> -->
-		<!-- <input class="btn btn-warning" style="width:335px;" type="submit" value="Modifier Fournisseur" /> -->
-		<!-- <div style="float:right"> -->
-			<!-- {{ form_start(delete_form) }} -->
-				<!-- <input class="btn btn-danger" style="width:335px;" type="submit" value="Supprimer Fournisseur"> -->
-			<!-- {{ form_end(delete_form) }}	 -->
-		<!-- </div>	 -->
-	<!-- </div> -->
-	<table>
-		<tr>
-			<td style="padding-bottom:5px;">
-				<a class="btn btn-primary" style="width:200px;" href="{{ path('fournisseur_index') }}">Retour à la liste</a>
-			</td>
-		</tr>
-		<tr>
-			<td style="padding-bottom:5px;">
-				<a class="btn btn-warning" style="width:200px;" href="{{ path('fournisseur_edit', { 'id': fournisseur.id }) }}">Modifier</a>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<div>
-					{{ form_start(delete_form) }}
-						<input class="btn btn-danger" style="width:200px;" type="submit" value="Supprimer">
-					{{ form_end(delete_form) }}				
-				</div>
-			</td>
-		</tr>		
-	</table>	
-</div>
-    <!-- <ul> -->
-        <!-- <li> -->
-            <!-- <a href="{{ path('fournisseur_index') }}">Back to the list</a> -->
-        <!-- </li> -->
-        <!-- <li> -->
-            <!-- {{ form_start(delete_form) }} -->
-                <!-- <input type="submit" value="Delete"> -->
-            <!-- {{ form_end(delete_form) }} -->
-        <!-- </li> -->
-    <!-- </ul> -->
+	{{ form_start(edit_form) }}
+	<div style="float:left">		
+		{{ form_widget(edit_form) }}
+	</div>
+	<div style="float:left;margin-left:150px">
+		<table>
+			<tr>
+				<td style="padding-bottom:9px;">
+					<a class="btn btn-primary" style="width:200px;" href="{{ path('fournisseur_index') }}">Retour à la liste</a>
+				</td>
+			</tr>
+			<tr>
+				<td style="padding-bottom:5px;">
+					<button class="btn btn-warning" style="width:200px;" type="submit">Modifier</button>
+				</td>
+			</tr>		
+		</table>
+	</div>	
+	{{ form_end(edit_form) }}
+	<br><br><br><br>
+		<table style="float:left;margin-left:150px">
+			<tr>
+				<td>
+					<div>
+						{{ form_start(delete_form) }}
+							<input class="btn btn-danger" style="width:200px;" type="submit" value="Supprimer">
+						{{ form_end(delete_form) }}				
+					</div>
+				</td>
+			</tr>		
+		</table>
 </div>	
 {% endblock %}
 
