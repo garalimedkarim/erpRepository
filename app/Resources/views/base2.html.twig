@@ -294,6 +294,15 @@
 
 			<!-- Custom scripts for this template -->
 			<script src="{{asset('assets2/js/sb-admin.min.js')}}"></script>
+			<script>
+				$(document).ready(function(){
+					if ($(window).width() < 991) {
+						$('body').removeClass('sidenav-toggled');
+					}else{
+						$('body').addClass('sidenav-toggled');
+					}
+				});	
+			</script>
 		{% endblock %}
 	</body>
 	
