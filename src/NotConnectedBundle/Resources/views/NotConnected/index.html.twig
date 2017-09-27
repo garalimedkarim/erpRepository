@@ -6,6 +6,14 @@
 
 {% block stylesheets %}
     {{ parent() }}
+	<link href="{{asset('assets/assets3/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+	<link href="{{asset('assets/assets3/footer.css')}}" rel="stylesheet">	
+	<link href="{{asset('assets/assets3/agency.min.css')}}" rel="stylesheet" type="text/css">	
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>	
+			
 {% endblock %}
 
 {% block body %}
@@ -41,166 +49,291 @@
 	
 		<!-- Header -->
 		<header class="intro-header" id="home">
-		  <div class="container">
+		  <div class="container vh">
 		  
 			<div class="intro-message">
 			  <h1>Business Management</h1>
-			  <h3>A Template by Start Bootstrap</h3>
-			  <hr class="intro-divider">
-			  <ul class="list-inline intro-social-buttons">
-				<li class="list-inline-item">
-				  <a href="#" class="btn btn-secondary btn-lg">
-					<i class="fa fa-twitter fa-fw"></i>
-					<span class="network-name">Twitter</span>
-				  </a>
-				</li>
-				<li class="list-inline-item">
-				  <a href="#" class="btn btn-secondary btn-lg">
-					<i class="fa fa-github fa-fw"></i>
-					<span class="network-name">Github</span>
-				  </a>
-				</li>
-				<li class="list-inline-item">
-				  <a href="#" class="btn btn-secondary btn-lg">
-					<i class="fa fa-linkedin fa-fw"></i>
-					<span class="network-name">Linkedin</span>
-				  </a>
-				</li>
-			  </ul>
+			  <!-- <h3>A Template by Start Bootstrap</h3> -->
+			  <!-- <hr class="intro-divider"> -->
+			  <!-- <ul class="list-inline intro-social-buttons"> -->
+				<!-- <li class="list-inline-item"> -->
+				  <!-- <a href="#" class="btn btn-secondary btn-lg"> -->
+					<!-- <i class="fa fa-twitter fa-fw"></i> -->
+					<!-- <span class="network-name">Twitter</span> -->
+				  <!-- </a> -->
+				<!-- </li> -->
+				<!-- <li class="list-inline-item"> -->
+				  <!-- <a href="#" class="btn btn-secondary btn-lg"> -->
+					<!-- <i class="fa fa-github fa-fw"></i> -->
+					<!-- <span class="network-name">Github</span> -->
+				  <!-- </a> -->
+				<!-- </li> -->
+				<!-- <li class="list-inline-item"> -->
+				  <!-- <a href="#" class="btn btn-secondary btn-lg"> -->
+					<!-- <i class="fa fa-linkedin fa-fw"></i> -->
+					<!-- <span class="network-name">Linkedin</span> -->
+				  <!-- </a> -->
+				<!-- </li> -->
+			  <!-- </ul> -->
 			</div>
 		  </div>
 		</header>
 
+	   <!-- Services -->
+		<section id="services">
+		  <div class="container">
+			<div class="row">
+			  <div class="col-lg-12 text-center">
+				<h2 class="section-heading">Services</h2>
+				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+			  </div>
+			</div>
+
+			<div class="row text-center">
+			  <div class="col-md-4">
+				<span class="fa-stack fa-4x">
+				  <i class="fa fa-circle fa-stack-2x text-primary"></i>
+				  <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+				</span>
+				<h4 class="service-heading">E-Commerce</h4>
+				<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+			  </div>
+			  <div class="col-md-4">
+				<span class="fa-stack fa-4x">
+				  <i class="fa fa-circle fa-stack-2x text-primary"></i>
+				  <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+				</span>
+				<h4 class="service-heading">Responsive Design</h4>
+				<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+			  </div>
+			  <div class="col-md-4">
+				<span class="fa-stack fa-4x">
+				  <i class="fa fa-circle fa-stack-2x text-primary"></i>
+				  <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+				</span>
+				<h4 class="service-heading">Web Security</h4>
+				<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+			  </div>
+			</div>
+		  </div>
+		</section>
+
+		<!-- <footer> -->
+		  <!-- <div class="container" style="text-align:center"> -->
+			<!-- <ul class="list-inline"> -->
+			  <!-- <li class="list-inline-item"> -->
+				<!-- <a href="#">Home</a> -->
+			  <!-- </li> -->
+			  <!-- <li class="footer-menu-divider list-inline-item">&sdot;</li> -->
+			  <!-- <li class="list-inline-item"> -->
+				<!-- <a href="#about">About</a> -->
+			  <!-- </li> -->
+			  <!-- <li class="footer-menu-divider list-inline-item">&sdot;</li> -->
+			  <!-- <li class="list-inline-item"> -->
+				<!-- <a href="#services">Services</a> -->
+			  <!-- </li> -->
+			  <!-- <li class="footer-menu-divider list-inline-item">&sdot;</li> -->
+			  <!-- <li class="list-inline-item"> -->
+				<!-- <a href="#contact">Contact</a> -->
+			  <!-- </li> -->
+			<!-- </ul> -->
+			<!-- <p class="copyright text-muted small">Copyright &copy; Your Company 2017. All Rights Reserved</p> -->
+		  <!-- </div> -->
+		<!-- </footer>	 -->
+
+
+		<section id="contact">
+			<div class="jumbotron jumbotron-sm">
+				<div class="container">
+					<div class="row text-center">
+						<div class="col-sm-12 col-lg-12">
+							<h1 class="h1">
+								Contact us
+							</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">
+						<div class="well well-sm">
+							<form>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="name">
+											Name</label>
+										<input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
+									</div>
+									<div class="form-group">
+										<label for="email">
+											Email Address</label>
+										<div class="input-group">
+											<span class="input-group-addon"><span class="fa fa-envelope"></span>
+											</span>
+											<input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
+									</div>
+									<div class="form-group">
+										<label for="subject">
+											Subject</label>
+										<select id="subject" name="subject" class="form-control" required="required">
+											<option value="na" selected="">Choose One:</option>
+											<option value="service">General Customer Service</option>
+											<option value="suggestions">Suggestions</option>
+											<option value="product">Product Support</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="name">
+											Message</label>
+										<textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
+											placeholder="Message"></textarea>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+										Send Message</button>
+								</div>
+							</div>
+							</form>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<form>
+						<legend><span class="fa fa-globe"></span> Our office</legend>
+						<address>
+							<strong>Twitter, Inc.</strong><br>
+							795 Folsom Ave, Suite 600<br>
+							San Francisco, CA 94107<br>
+							<abbr title="Phone">
+								P:</abbr>
+							(123) 456-7890
+						</address>
+						<address>
+							<strong>Full Name</strong><br>
+							<a href="mailto:garalimedkarim4@gmail.com">garalimedkarim4@gmail.com</a>
+						</address>
+						</form>
+					</div>
+				</div>
+			</div>
+
+		</section>		
+
 		<!-- Page Content -->
-		<section class="content-section-a">
+		<!-- <section class="content-section-a"> -->
 
-		  <div class="container">
-			<div class="row">
-			  <div class="col-lg-5 ml-auto">
-				<hr class="section-heading-spacer">
-				<div class="clearfix"></div>
-				<h2 class="section-heading">Death to the Stock Photo:<br>Special Thanks</h2>
-				<p class="lead">A special thanks to
-				  <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a>
-				  for providing the photographs that you see in this template. Visit their website to become a member.</p>
-			  </div>
-			  <div class="col-lg-5 mr-auto">
-				<img class="img-fluid" src="{{asset('assets/img/ipad.png')}}" alt="">
-			  </div>
-			</div>
+		  <!-- <div class="container vh"> -->
+			<!-- <div class="row"> -->
+			  <!-- <div class="col-lg-5 ml-auto"> -->
+				<!-- <hr class="section-heading-spacer"> -->
+				<!-- <div class="clearfix"></div> -->
+				<!-- <h2 class="section-heading">Death to the Stock Photo:<br>Special Thanks</h2> -->
+				<!-- <p class="lead">A special thanks to -->
+				  <!-- <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a> -->
+				  <!-- for providing the photographs that you see in this template. Visit their website to become a member.</p> -->
+			  <!-- </div> -->
+			  <!-- <div class="col-lg-5 mr-auto"> -->
+				<!-- <img class="img-fluid" src="{{asset('assets/img/ipad.png')}}" alt=""> -->
+			  <!-- </div> -->
+			<!-- </div> -->
 
-		  </div>
-		  <!-- /.container -->
-		</section>
+		  <!-- </div> -->
+		<!-- </section> -->
+				
 
-		<section class="content-section-b">
+		<!-- <section class="content-section-b"> -->
 
-		  <div class="container">
+		  <!-- <div class="container"> -->
 
-			<div class="row">
-			  <div class="col-lg-5 mr-auto order-lg-2">
-				<hr class="section-heading-spacer">
-				<div class="clearfix"></div>
-				<h2 class="section-heading">3D Device Mockups<br>by PSDCovers</h2>
-				<p class="lead">Turn your 2D designs into high quality, 3D product shots in seconds using free Photoshop actions by
-				  <a target="_blank" href="http://www.psdcovers.com/">PSDCovers</a>! Visit their website to download some of their awesome, free photoshop actions!</p>
-			  </div>
-			  <div class="col-lg-5 ml-auto order-lg-1">
-				<img class="img-fluid" src="{{asset('assets/img/dog.png')}}" alt="">
-			  </div>
-			</div>
+			<!-- <div class="row"> -->
+			  <!-- <div class="col-lg-5 mr-auto order-lg-2"> -->
+				<!-- <hr class="section-heading-spacer"> -->
+				<!-- <div class="clearfix"></div> -->
+				<!-- <h2 class="section-heading">3D Device Mockups<br>by PSDCovers</h2> -->
+				<!-- <p class="lead">Turn your 2D designs into high quality, 3D product shots in seconds using free Photoshop actions by -->
+				  <!-- <a target="_blank" href="http://www.psdcovers.com/">PSDCovers</a>! Visit their website to download some of their awesome, free photoshop actions!</p> -->
+			  <!-- </div> -->
+			  <!-- <div class="col-lg-5 ml-auto order-lg-1"> -->
+				<!-- <img class="img-fluid" src="{{asset('assets/img/dog.png')}}" alt=""> -->
+			  <!-- </div> -->
+			<!-- </div> -->
 
-		  </div>
-		  <!-- /.container -->
+		  <!-- </div> -->
 
-		</section>
-		<!-- /.content-section-b -->
+		<!-- </section> -->
 
-		<section class="content-section-a">
 
-		  <div class="container">
+		<!-- <section class="content-section-a"> -->
 
-			<div class="row">
-			  <div class="col-lg-5 ml-auto">
-				<hr class="section-heading-spacer">
-				<div class="clearfix"></div>
-				<h2 class="section-heading">Google Web Fonts and<br>Font Awesome Icons</h2>
-				<p class="lead">This template features the 'Lato' font, part of the
-				  <a target="_blank" href="http://www.google.com/fonts">Google Web Font library</a>, as well as
-				  <a target="_blank" href="http://fontawesome.io">icons from Font Awesome</a>.</p>
-			  </div>
-			  <div class="col-lg-5 mr-auto ">
-				<img class="img-fluid" src="{{asset('assets/img/phones.png')}}" alt="">
-			  </div>
-			</div>
+		  <!-- <div class="container"> -->
 
-		  </div>
-		  <!-- /.container -->
+			<!-- <div class="row"> -->
+			  <!-- <div class="col-lg-5 ml-auto"> -->
+				<!-- <hr class="section-heading-spacer"> -->
+				<!-- <div class="clearfix"></div> -->
+				<!-- <h2 class="section-heading">Google Web Fonts and<br>Font Awesome Icons</h2> -->
+				<!-- <p class="lead">This template features the 'Lato' font, part of the -->
+				  <!-- <a target="_blank" href="http://www.google.com/fonts">Google Web Font library</a>, as well as -->
+				  <!-- <a target="_blank" href="http://fontawesome.io">icons from Font Awesome</a>.</p> -->
+			  <!-- </div> -->
+			  <!-- <div class="col-lg-5 mr-auto "> -->
+				<!-- <img class="img-fluid" src="{{asset('assets/img/phones.png')}}" alt=""> -->
+			  <!-- </div> -->
+			<!-- </div> -->
 
-		</section>
-		<!-- /.content-section-a -->
+		  <!-- </div> -->
 
-		<aside class="banner">
 
-		  <div class="container">
+		<!-- </section> -->
 
-			<div class="row">
-			  <div class="col-lg-6 my-auto">
-				<h2>Connect to Start Bootstrap:</h2>
-			  </div>
-			  <div class="col-lg-6 my-auto">
-				<ul class="list-inline banner-social-buttons">
-				  <li class="list-inline-item">
-					<a href="#" class="btn btn-secondary btn-lg">
-					  <i class="fa fa-twitter fa-fw"></i>
-					  <span class="network-name">Twitter</span>
-					</a>
-				  </li>
-				  <li class="list-inline-item">
-					<a href="#" class="btn btn-secondary btn-lg">
-					  <i class="fa fa-github fa-fw"></i>
-					  <span class="network-name">Github</span>
-					</a>
-				  </li>
-				  <li class="list-inline-item">
-					<a href="#" class="btn btn-secondary btn-lg">
-					  <i class="fa fa-linkedin fa-fw"></i>
-					  <span class="network-name">Linkedin</span>
-					</a>
-				  </li>
-				</ul>
-			  </div>
-			</div>
 
-		  </div>
-		  <!-- /.container -->
+		<!-- <aside class="banner"> -->
 
-		</aside>
+		  <!-- <div class="container"> -->
+
+			<!-- <div class="row"> -->
+			  <!-- <div class="col-lg-6 my-auto"> -->
+				<!-- <h2>Connect to Start Bootstrap:</h2> -->
+			  <!-- </div> -->
+			  <!-- <div class="col-lg-6 my-auto"> -->
+				<!-- <ul class="list-inline banner-social-buttons"> -->
+				  <!-- <li class="list-inline-item"> -->
+					<!-- <a href="#" class="btn btn-secondary btn-lg"> -->
+					  <!-- <i class="fa fa-twitter fa-fw"></i> -->
+					  <!-- <span class="network-name">Twitter</span> -->
+					<!-- </a> -->
+				  <!-- </li> -->
+				  <!-- <li class="list-inline-item"> -->
+					<!-- <a href="#" class="btn btn-secondary btn-lg"> -->
+					  <!-- <i class="fa fa-github fa-fw"></i> -->
+					  <!-- <span class="network-name">Github</span> -->
+					<!-- </a> -->
+				  <!-- </li> -->
+				  <!-- <li class="list-inline-item"> -->
+					<!-- <a href="#" class="btn btn-secondary btn-lg"> -->
+					  <!-- <i class="fa fa-linkedin fa-fw"></i> -->
+					  <!-- <span class="network-name">Linkedin</span> -->
+					<!-- </a> -->
+				  <!-- </li> -->
+				<!-- </ul> -->
+			  <!-- </div> -->
+			<!-- </div> -->
+
+		  <!-- </div> -->
+		  
+
+		<!-- </aside> -->
 		<!-- /.banner -->
 
 		<!-- Footer -->
-		<footer>
-		  <div class="container" style="text-align:center">
-			<ul class="list-inline">
-			  <li class="list-inline-item">
-				<a href="#">Home</a>
-			  </li>
-			  <li class="footer-menu-divider list-inline-item">&sdot;</li>
-			  <li class="list-inline-item">
-				<a href="#about">About</a>
-			  </li>
-			  <li class="footer-menu-divider list-inline-item">&sdot;</li>
-			  <li class="list-inline-item">
-				<a href="#services">Services</a>
-			  </li>
-			  <li class="footer-menu-divider list-inline-item">&sdot;</li>
-			  <li class="list-inline-item">
-				<a href="#contact">Contact</a>
-			  </li>
-			</ul>
-			<p class="copyright text-muted small">Copyright &copy; Your Company 2017. All Rights Reserved</p>
-		  </div>
-		</footer>
+
 	
 {% endblock %}
 
+{% block javascripts %}
+	{{ parent() }}
+{% endblock %}
