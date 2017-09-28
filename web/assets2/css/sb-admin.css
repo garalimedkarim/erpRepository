@@ -195,7 +195,7 @@ body.fixed-nav {
     background: #343a40; }
     #mainNav.navbar-dark .navbar-collapse .navbar-sidenav li.active a {
       color: white !important;
-      background-color: #495057; }
+      background-color: #1996B2; }
       #mainNav.navbar-dark .navbar-collapse .navbar-sidenav li.active a:focus, #mainNav.navbar-dark .navbar-collapse .navbar-sidenav li.active a:hover {
         color: white; }
     #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level,
@@ -226,7 +226,7 @@ body.fixed-nav {
     background: #f8f9fa; }
     #mainNav.navbar-light .navbar-collapse .navbar-sidenav li.active a {
       color: #000 !important;
-      background-color: #e9ecef; }
+      background-color: #1996B2; }
       #mainNav.navbar-light .navbar-collapse .navbar-sidenav li.active a:focus, #mainNav.navbar-light .navbar-collapse .navbar-sidenav li.active a:hover {
         color: #000; }
     #mainNav.navbar-light .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level,
@@ -359,16 +359,10 @@ footer.sticky-footer {
 }
 
 .odd{
-	background-color: #f0fff0;
+	background-color: ghostwhite; /*#f0fff0;*/
 }	
-
-/* .odd{ */
-	/* color:white; */
-	/* background-color:greenyellow; */
-/* } */
-
 /* .even{ */
-	/* background-color:gold; */
+	/* background-color:white; */
 /* } */
 
 .flr{

@@ -1,3 +1,19 @@
 .vh{
 	height:100vh;
 }
+
+.bgw{
+	background-color:white;
+}
+
+.bgg{
+	background-color:#F5F5F5;
+}
+
+.fsb2{
+	font-size:14px;
+}
+
+.tr_frs tr:hover {
+  background-color: #F5F5F5;
+}

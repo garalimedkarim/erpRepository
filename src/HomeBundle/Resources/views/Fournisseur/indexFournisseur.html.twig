@@ -37,9 +37,9 @@
 				<div id="dataTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
 					<div class="row">
 						<div class="col-sm-12">
-							<table class="table table-bordered dataTable" id="dataTable" role="grid" aria-describedby="dataTable_info" style="width: 100%;" width="100%" cellspacing="0">
+							<table class="table table-bordered dataTable table_frns" id="dataTable" role="grid" aria-describedby="dataTable_info" style="width: 100%;" width="100%" cellspacing="0">
 								<thead>
-									<tr role="row">
+									<tr role="row" class="bgw">
 										<!-- <th>Id</th> -->
 										<th>Nomfournisseur</th>
 										<th>Adresse</th>
@@ -71,7 +71,7 @@
 									</tr>
 								</thead>
 								<tfoot>
-									<tr>
+									<tr class="bgw">
 										<!-- <th>Id</th> -->
 										<th>Nomfournisseur</th>
 										<th>Adresse</th>
@@ -102,7 +102,7 @@
 										<th>Actions</th>
 									</tr>
 								</tfoot>
-								<tbody>
+								<tbody class="tr_frs">
 									
 									{% for fournisseur in fournisseurs %}
 										<tr role="row" class="{% if loop.index is odd %} odd {% else %} even {% endif%}">
@@ -139,7 +139,8 @@
 													<!-- <span class="fa fa-info-circle" aria-hidden="true"></span> -->
 												<!-- </a> &nbsp; -->
 												<a class="btn btn-warning btn-xs" href="{{ path('fournisseur_edit', { 'id': fournisseur.id }) }}">
-													<span class="fa fa-pencil" aria-hidden="true"></span>
+													<!-- <span class="fa fa-pencil" aria-hidden="true"></span> -->
+													<button class="btn btn-warning btn-xs" style="color:ghostwhite">Modifier</button>
 												</a>												
 											</td>
 										</tr>	
