@@ -177,7 +177,8 @@ body.fixed-nav {
 #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item > .nav-link {
   color: #868e96; }
   #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item > .nav-link:hover {
-    color: #adb5bd; }
+    color: white;
+	background-color:#1996B2;}
 
 #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level > li > a,
 #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-third-level > li > a {
@@ -359,7 +360,7 @@ footer.sticky-footer {
 }
 
 .odd{
-	background-color: ghostwhite; /*#f0fff0;*/
+	background-color: #F5F5F5; /*#f0fff0;*/
 }	
 /* .even{ */
 	/* background-color:white; */

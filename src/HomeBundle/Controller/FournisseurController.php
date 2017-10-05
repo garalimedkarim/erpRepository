@@ -76,11 +76,13 @@ class FournisseurController extends Controller
             throw new AccessDeniedException('This user does not have access to this section.');
         }
 
+        $form = $this->createForm('HomeBundle\Form\FournisseurType',$fournisseur);
         $deleteForm = $this->createDeleteForm($fournisseur);
 
         return $this->render('HomeBundle:Fournisseur:show.html.twig', array(
-            'fournisseur' => $fournisseur,
+            'form' => $form->createView(),
             'delete_form' => $deleteForm->createView(),
+            'id' => $fournisseur->getId()
         ));
     }
 
@@ -107,7 +109,7 @@ class FournisseurController extends Controller
 
         return $this->render('HomeBundle:Fournisseur:edit.html.twig', array(
             'fournisseur' => $fournisseur,
-            'edit_form' => $editForm->createView(),
+            'form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }

@@ -14,32 +14,108 @@ class FournisseurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-			->add('nomFournisseur')
-			->add('adresse')
-			->add('ville')
-			->add('codeTva')
-			->add('tel')
-			->add('tel2')
-			->add('tel1')
-			->add('fax')
-			->add('contact')
-			->add('gsm')
-			->add('contact1')
-			->add('gsm1')
-			->add('gsm2')
-			->add('contact2')
-			->add('contact3')
-			->add('gsm3')
-			->add('echange')
-			->add('modereg')
-			->add('mail')
-			->add('postal')
-			->add('frs')
-			->add('famille')
-			->add('remise')
-			->add('solde')
-			->add('timbre')
-			->add('idfam');
+			// ->setAction($this->generateUrl('target_route'))
+			// ->setMethod('GET')
+			->add('nomFournisseur', null, array(
+				'label'      => 'Nom Fournisseur',		
+			))
+			->add('adresse', null, array(
+				'label'      => 'Adresse',
+			))
+			->add('ville', null, array(
+				'label'      => 'Ville',
+			))
+			->add('codeTva', null, array(
+				'label'      => 'Code TVA',
+			))
+			->add('tel', null, array(
+				'label'      => 'Telephone',
+
+			))
+			->add('tel1', null, array(
+				'label'      => 'Telephone 1',
+
+			))			
+			->add('tel2', null, array(
+				'label'      => 'Telephone 2',
+
+			))
+
+			->add('fax', null, array(
+				'label'      => 'Fax',
+
+			))
+			->add('contact', null, array(
+				'label'      => 'Contact',
+
+			))
+			->add('gsm', null, array(
+				'label'      => 'GSM',
+
+			))
+			->add('contact1', null, array(
+				'label'      => 'Contact 1',
+
+			))
+			->add('gsm1', null, array(
+				'label'      => 'GSM 1',
+
+			))
+			->add('contact2', null, array(
+				'label'      => 'Contact 2',
+
+			))			
+			->add('gsm2', null, array(
+				'label'      => 'GSM 2',
+
+			))
+
+			->add('contact3', null, array(
+				'label'      => 'Contact 3',
+
+			))
+			->add('gsm3', null, array(
+				'label'      => 'GSM 3',
+
+			))
+			->add('echange', null, array(
+				'label'      => 'Echange',
+
+			))
+			->add('modereg', null, array(
+				'label'      => 'Mode de réglement',
+
+			))
+			->add('mail', null, array(
+				'label'      => 'Mail',
+
+			))
+			->add('postal', null, array(
+				'label'      => 'Code Postal',
+
+			))
+			->add('frs', null, array(
+				'label'      => 'FRS',
+
+			))
+			->add('famille', null, array(
+				'label'      => 'Famille',
+
+			))
+			->add('remise', null, array(
+				'label'      => 'Remise',
+
+			))
+			->add('solde', null, array(
+				'label'      => 'Solde',
+
+			))
+			->add('timbre', null, array(
+				'label'      => 'Timbre',
+
+			))
+			// ->add('idfam')
+			;
     }
     
     /**

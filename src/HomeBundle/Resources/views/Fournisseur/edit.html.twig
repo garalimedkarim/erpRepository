@@ -20,41 +20,19 @@
 	</ol>
 {% endblock %}
 {% block body %}
-{% form_theme edit_form 'form_table_layout_fournisseur.html.twig' %}
+ <!-- {# {% form_theme edit_form 'form_table_layout_fournisseur.html.twig' %} #} -->
 <div class="container">
+	{{ form_start(form) }}
+		{{ include("HomeBundle:Fournisseur:form_fournisseur.html.twig") }}
+		
+		<div class="form-group row">
+		<div class="col-sm-4"></div>
+			<div class="col-sm-4" >
+				<input class="btn btn-warning btn-sm" style="width:100%;color:white" type="submit" value="Modifier" />
+			</div>
+		</div>		
+	{{ form_end(form) }}
 
-
-	{{ form_start(edit_form) }}
-	<div style="float:left">		
-		{{ form_widget(edit_form) }}
-	</div>
-	<div style="float:left;margin-left:150px">
-		<table>
-			<tr>
-				<td style="padding-bottom:9px;">
-					<a class="btn btn-primary" style="width:200px;" href="{{ path('fournisseur_index') }}">Retour à la liste</a>
-				</td>
-			</tr>
-			<tr>
-				<td style="padding-bottom:5px;">
-					<button class="btn btn-warning" style="width:200px;" type="submit">Modifier</button>
-				</td>
-			</tr>		
-		</table>
-	</div>	
-	{{ form_end(edit_form) }}
-	<br><br><br><br>
-		<table style="float:left;margin-left:150px">
-			<tr>
-				<td>
-					<div>
-						{{ form_start(delete_form) }}
-							<input class="btn btn-danger" style="width:200px;" type="submit" value="Supprimer">
-						{{ form_end(delete_form) }}				
-					</div>
-				</td>
-			</tr>		
-		</table>
 </div>	
 {% endblock %}
 

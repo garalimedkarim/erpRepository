@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Fournisseur
 {
+	// final contacts = array("tel","tel1","tel2","fax","mail","contact","gsm","contact1","gsm1","contact2","gsm2","contact3","gsm3");
     /**
      * @var int
      *

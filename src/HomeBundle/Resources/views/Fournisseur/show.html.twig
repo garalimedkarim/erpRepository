@@ -16,147 +16,170 @@
 			<!-- <a href="#">Dashboard</a> -->
 		<!-- </li> -->
 		<li class="breadcrumb-item ">Mes Fournisseurs</li>
-		<li class="breadcrumb-item active">Fournisseur</li>
+		<li class="breadcrumb-item active"> Fournisseur</li>
 	</ol>
 {% endblock %}
 {% block body %}
+
 {# {% form_theme edit_form 'form_table_layout_fournisseur.html.twig' %} #}
+
 <div class="container">
 
-    <table style="float:left;">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ fournisseur.id }}</td>
-            </tr>
-            <tr>
-                <th>Nomfournisseur</th>
-                <td>{{ fournisseur.nomFournisseur }}</td>
-            </tr>
-            <tr>
-                <th>Adresse</th>
-                <td>{{ fournisseur.adresse }}</td>
-            </tr>
-            <tr>
-                <th>Ville</th>
-                <td>{{ fournisseur.ville }}</td>
-            </tr>
-            <tr>
-                <th>Codetva</th>
-                <td>{{ fournisseur.codeTva }}</td>
-            </tr>
-            <tr>
-                <th>Tel</th>
-                <td>{{ fournisseur.tel }}</td>
-            </tr>
-            <tr>
-                <th>Tel2</th>
-                <td>{{ fournisseur.tel2 }}</td>
-            </tr>
-            <tr>
-                <th>Tel1</th>
-                <td>{{ fournisseur.tel1 }}</td>
-            </tr>
-            <tr>
-                <th>Fax</th>
-                <td>{{ fournisseur.fax }}</td>
-            </tr>
-            <tr>
-                <th>Contact</th>
-                <td>{{ fournisseur.contact }}</td>
-            </tr>
-            <tr>
-                <th>Gsm</th>
-                <td>{{ fournisseur.gsm }}</td>
-            </tr>
-            <tr>
-                <th>Contact1</th>
-                <td>{{ fournisseur.contact1 }}</td>
-            </tr>
-            <tr>
-                <th>Gsm1</th>
-                <td>{{ fournisseur.gsm1 }}</td>
-            </tr>
-            <tr>
-                <th>Gsm2</th>
-                <td>{{ fournisseur.gsm2 }}</td>
-            </tr>
-            <tr>
-                <th>Contact2</th>
-                <td>{{ fournisseur.contact2 }}</td>
-            </tr>
-            <tr>
-                <th>Contact3</th>
-                <td>{{ fournisseur.contact3 }}</td>
-            </tr>
-            <tr>
-                <th>Gsm3</th>
-                <td>{{ fournisseur.gsm3 }}</td>
-            </tr>
-            <tr>
-                <th>Echange</th>
-                <td>{{ fournisseur.echange }}</td>
-            </tr>
-            <tr>
-                <th>Modereg</th>
-                <td>{{ fournisseur.modereg }}</td>
-            </tr>
-            <tr>
-                <th>Mail</th>
-                <td>{{ fournisseur.mail }}</td>
-            </tr>
-            <tr>
-                <th>Postal</th>
-                <td>{{ fournisseur.postal }}</td>
-            </tr>
-            <tr>
-                <th>Frs</th>
-                <td>{{ fournisseur.frs }}</td>
-            </tr>
-            <tr>
-                <th>Famille</th>
-                <td>{{ fournisseur.famille }}</td>
-            </tr>
-            <tr>
-                <th>Remise</th>
-                <td>{{ fournisseur.remise }}</td>
-            </tr>
-            <tr>
-                <th>Solde</th>
-                <td>{{ fournisseur.solde }}</td>
-            </tr>
-            <tr>
-                <th>Timbre</th>
-                <td>{{ fournisseur.timbre }}</td>
-            </tr>
-            <tr>
-                <th>Idfam</th>
-                <td>{{ fournisseur.idfam }}</td>
-            </tr>
-        </tbody>
-    </table>
+		<form>
+			<fieldset disabled>
+				{{ include("HomeBundle:Fournisseur:form_fournisseur.html.twig") }}
+
+			</fieldset>	
+		</form>
+		
+		<div class="form-group row">
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4" >
+				<a class="btn btn-primary btn-sm" style="width:49%;float:left;margin-right:1%" href="{{ path('fournisseur_index') }}">Retour à la liste</a>
+				<a class="btn btn-warning btn-sm" style="width:24%;color:white;float:left;margin-right:1%" href="{{ path('fournisseur_edit', { 'id': id }) }}">Edit</a>
+				{{ form_start(delete_form) }}		
+						<input class="btn btn-danger btn-sm" style="width:24%;float:left;" type="submit" value="Delete">	
+				{{ form_end(delete_form) }} 
+			</div>
+		</div>			
+
+
+</div>	
+{#
+    <!-- <table style="float:left;"> -->
+        <!-- <tbody> -->
+            <!-- <tr> -->
+                <!-- <th>Id</th> -->
+                <!-- <td>{{ fournisseur.id }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Nomfournisseur</th> -->
+                <!-- <td>{{ fournisseur.nomFournisseur }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Adresse</th> -->
+                <!-- <td>{{ fournisseur.adresse }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Ville</th> -->
+                <!-- <td>{{ fournisseur.ville }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Codetva</th> -->
+                <!-- <td>{{ fournisseur.codeTva }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Tel</th> -->
+                <!-- <td>{{ fournisseur.tel }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Tel2</th> -->
+                <!-- <td>{{ fournisseur.tel2 }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Tel1</th> -->
+                <!-- <td>{{ fournisseur.tel1 }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Fax</th> -->
+                <!-- <td>{{ fournisseur.fax }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Contact</th> -->
+                <!-- <td>{{ fournisseur.contact }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Gsm</th> -->
+                <!-- <td>{{ fournisseur.gsm }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Contact1</th> -->
+                <!-- <td>{{ fournisseur.contact1 }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Gsm1</th> -->
+                <!-- <td>{{ fournisseur.gsm1 }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Gsm2</th> -->
+                <!-- <td>{{ fournisseur.gsm2 }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Contact2</th> -->
+                <!-- <td>{{ fournisseur.contact2 }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Contact3</th> -->
+                <!-- <td>{{ fournisseur.contact3 }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Gsm3</th> -->
+                <!-- <td>{{ fournisseur.gsm3 }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Echange</th> -->
+                <!-- <td>{{ fournisseur.echange }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Modereg</th> -->
+                <!-- <td>{{ fournisseur.modereg }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Mail</th> -->
+                <!-- <td>{{ fournisseur.mail }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Postal</th> -->
+                <!-- <td>{{ fournisseur.postal }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Frs</th> -->
+                <!-- <td>{{ fournisseur.frs }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Famille</th> -->
+                <!-- <td>{{ fournisseur.famille }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Remise</th> -->
+                <!-- <td>{{ fournisseur.remise }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Solde</th> -->
+                <!-- <td>{{ fournisseur.solde }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Timbre</th> -->
+                <!-- <td>{{ fournisseur.timbre }}</td> -->
+            <!-- </tr> -->
+            <!-- <tr> -->
+                <!-- <th>Idfam</th> -->
+                <!-- <td>{{ fournisseur.idfam }}</td> -->
+            <!-- </tr> -->
+        <!-- </tbody> -->
+    <!-- </table> -->
 	
-	<table style="margin-left:150px;float:left">
-		<tr>
-			<td style="padding-bottom:5px;">
-				<a class="btn btn-primary" style="width:200px;" href="{{ path('fournisseur_index') }}">Retour à la liste</a>
-			</td>
-		</tr>
-		<tr>
-			<td style="padding-bottom:5px;">
-				<a class="btn btn-warning" style="width:200px;" href="{{ path('fournisseur_edit', { 'id': fournisseur.id }) }}">Modifier</a>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<div>
-					{{ form_start(delete_form) }}
-						<input class="btn btn-danger" style="width:200px;" type="submit" value="Supprimer">
-					{{ form_end(delete_form) }}				
-				</div>
-			</td>
-		</tr>		
-	</table>
+	<!-- <table style="margin-left:150px;float:left"> -->
+		<!-- <tr> -->
+			<!-- <td style="padding-bottom:5px;"> -->
+				<!-- <a class="btn btn-primary" style="width:200px;" href="{{ path('fournisseur_index') }}">Retour à la liste</a> -->
+			<!-- </td> -->
+		<!-- </tr> -->
+		<!-- <tr> -->
+			<!-- <td style="padding-bottom:5px;"> -->
+				<!-- <a class="btn btn-warning" style="width:200px;" href="{{ path('fournisseur_edit', { 'id': fournisseur.id }) }}">Modifier</a> -->
+			<!-- </td> -->
+		<!-- </tr> -->
+		<!-- <tr> -->
+			<!-- <td> -->
+				<!-- <div> -->
+					<!-- {{ form_start(delete_form) }} -->
+						<!-- <input class="btn btn-danger" style="width:200px;" type="submit" value="Supprimer"> -->
+					<!-- {{ form_end(delete_form) }}				 -->
+				<!-- </div> -->
+			<!-- </td> -->
+		<!-- </tr>		 -->
+	<!-- </table> -->
 	
 
     <!-- <ul> -->
@@ -172,7 +195,7 @@
             <!-- {{ form_end(delete_form) }} -->
         <!-- </li> -->
     <!-- </ul> -->
-</div>	
+#}	
 {% endblock %}
 
 {% block javascripts %}

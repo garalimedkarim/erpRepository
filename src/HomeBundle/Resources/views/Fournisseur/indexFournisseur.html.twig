@@ -12,16 +12,35 @@
 {% block title_tab %}
 	<!-- Breadcrumbs -->
 	<ol class="breadcrumb">
-		<!-- <li class="breadcrumb-item"> -->
-			<!-- <a href="#">Dashboard</a> -->
-		<!-- </li> -->
-		<li class="breadcrumb-item active">Mes Fournisseurs</li>
-		<li>
-		<a class="flr" href="{{ path('fournisseur_new') }}">
-			<button type="button" class="btn btn-success btn-sm">Ajouter un fournisseur</button>
-		</a>
+	   <!-- <li class="breadcrumb-item"> -->
+			   <!-- <a href="#">Dashboard</a> -->
+	   <!-- </li> -->
+	   <li class="breadcrumb-item">
+			<h5><span class="fa fa-truck"></span> &nbsp;Mes Fournisseurs</h5>
+	   </li>
+	   <li>
+			<a class="flr" href="{{ path('fournisseur_new') }}">
+				<button type="button" class="btn btn-success btn-sm">Ajouter un fournisseur</button> </a>
 		</li>
 	</ol>
+
+		<!-- <div class="row justify-content-between"> -->
+			<!-- <h3 class="col-md-4">  -->
+				<!-- <span class="fa fa-truck"></span> &nbsp; <span style="color: grey;"> Mes Fournisseurs </span> -->
+			<!-- </h3> -->
+			<!-- <a href="{{ path('fournisseur_new') }}"> -->
+				<!-- <button type="button" class="btn btn-success flr mgraf">Ajouter un fournisseur</button> -->
+			<!-- </a> -->
+		<!-- </div> -->
+		
+		<!-- <ol class="breadcrumb"> -->
+			<!-- <li class="breadcrumb-item active"><h3>Mes Fournisseurs</li> -->
+			<!-- <li> -->
+			<!-- <a class="flr" href="{{ path('fournisseur_new') }}"> -->
+				<!-- <button type="button" class="btn btn-success btn-sm">Ajouter un fournisseur</button> -->
+			<!-- </a> -->
+			<!-- </li> -->
+		<!-- </ol> -->
 {% endblock %}
  
 {% block body %}
@@ -32,9 +51,11 @@
 				<!-- <button type="button" class="btn btn-success">Ajouter un fournisseur</button> -->
 			<!-- </a> -->
 		<!-- </div> -->
+	<div class="row justify-content-center">
+	<div class="col-md-11 ">	
 		<div class="card-body">
 			<div class="table-responsive">
-				<div id="dataTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+				<div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4 ">
 					<div class="row">
 						<div class="col-sm-12">
 							<table class="table table-bordered dataTable table_frns" id="dataTable" role="grid" aria-describedby="dataTable_info" style="width: 100%;" width="100%" cellspacing="0">
@@ -44,7 +65,7 @@
 										<th>Nomfournisseur</th>
 										<th>Adresse</th>
 										<th>Ville</th>
-										<th>Codetva</th>
+										<!-- <th>Codetva</th> -->
 										<!-- <th>Tel</th> -->
 										<!-- <th>Tel2</th> -->
 										<!-- <th>Tel1</th> -->
@@ -61,7 +82,7 @@
 										<th>Modereg</th>
 										<!-- <th>Mail</th> -->
 										<!-- <th>Postal</th> -->
-										<th>Frs</th>
+										<!-- <th>Frs</th> -->
 										<th>Famille</th>
 										<th>Remise</th>
 										<th>Solde</th>
@@ -76,7 +97,7 @@
 										<th>Nomfournisseur</th>
 										<th>Adresse</th>
 										<th>Ville</th>
-										<th>Codetva</th>
+										<!-- <th>Codetva</th> -->
 										<!-- <th>Tel</th> -->
 										<!-- <th>Tel2</th> -->
 										<!-- <th>Tel1</th> -->
@@ -93,7 +114,7 @@
 										<th>Modereg</th>
 										<!-- <th>Mail</th> -->
 										<!-- <th>Postal</th> -->
-										<th>Frs</th>
+										<!-- <th>Frs</th> -->
 										<th>Famille</th>
 										<th>Remise</th>
 										<th>Solde</th>
@@ -111,7 +132,7 @@
 												<a style="text-decoration" href="{{ path('fournisseur_show', { 'id': fournisseur.id }) }}">{{ fournisseur.nomFournisseur }} </a></td>
 											<td>{{ fournisseur.adresse }}</td>
 											<td>{{ fournisseur.ville }}</td>
-											<td>{{ fournisseur.codeTva }}</td>
+											<!-- <td>{{ fournisseur.codeTva }}</td> -->
 											<!-- <td>{{ fournisseur.tel }}</td> -->
 											<!-- <td>{{ fournisseur.tel2 }}</td> -->
 											<!-- <td>{{ fournisseur.tel1 }}</td> -->
@@ -128,7 +149,7 @@
 											<td>{{ fournisseur.modereg }}</td>
 											<!-- <td>{{ fournisseur.mail }}</td> -->
 											<!-- <td>{{ fournisseur.postal }}</td> -->
-											<td>{{ fournisseur.frs }}</td>
+											<!-- <td>{{ fournisseur.frs }}</td> -->
 											<td>{{ fournisseur.famille }}</td>
 											<td>{{ fournisseur.remise }}</td>
 											<td>{{ fournisseur.solde }}</td>
@@ -138,9 +159,9 @@
 												<!-- <a class="btn btn-primary btn-xs" href="{{ path('fournisseur_show', { 'id': fournisseur.id }) }}"> -->
 													<!-- <span class="fa fa-info-circle" aria-hidden="true"></span> -->
 												<!-- </a> &nbsp; -->
-												<a class="btn btn-warning btn-xs" href="{{ path('fournisseur_edit', { 'id': fournisseur.id }) }}">
+												<a href="{{ path('fournisseur_edit', { 'id': fournisseur.id }) }}">
 													<!-- <span class="fa fa-pencil" aria-hidden="true"></span> -->
-													<button class="btn btn-warning btn-xs" style="color:ghostwhite">Modifier</button>
+													<button class=" fa fa-edit btn btn-warning btn-xs" style="color:ghostwhite"></button>
 												</a>												
 											</td>
 										</tr>	
@@ -154,6 +175,8 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	</div>	
 <!-- 		<div class="card-footer small text-muted">
 			Updated yesterday at 11:59 PM
 		</div> -->
