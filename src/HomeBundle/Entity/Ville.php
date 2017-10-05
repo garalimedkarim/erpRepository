@@ -35,6 +35,11 @@ class Ville
      */
     private $codePostal;
 
+    /**
+    * @ORM\ManyToOne(targetEntity="Region")
+    * @ORM\JoinColumn(nullable=false)
+    */   
+    private $region;
 
     /**
      * Get id
@@ -93,5 +98,28 @@ class Ville
     {
         return $this->codePostal;
     }
-}
 
+    /**
+     * Set region
+     *
+     * @param \HomeBundle\Entity\Region $region
+     *
+     * @return Ville
+     */
+    public function setRegion(\HomeBundle\Entity\Region $region)
+    {
+        $this->region = $region;
+
+        return $this;
+    }
+
+    /**
+     * Get region
+     *
+     * @return \HomeBundle\Entity\Region
+     */
+    public function getRegion()
+    {
+        return $this->region;
+    }
+}
