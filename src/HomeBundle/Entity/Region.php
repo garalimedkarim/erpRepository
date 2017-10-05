@@ -35,7 +35,10 @@ class Region
      */
     private $prefixeTel;
 
-
+    /**
+    * @ORM\OneToMany(targetEntity="Ville",mappedBy="region")
+    */   
+    private $villes;
     /**
      * Get id
      *
@@ -93,5 +96,45 @@ class Region
     {
         return $this->prefixeTel;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->villes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add ville
+     *
+     * @param \HomeBundle\Entity\Ville $ville
+     *
+     * @return Region
+     */
+    public function addVille(\HomeBundle\Entity\Ville $ville)
+    {
+        $this->villes[] = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Remove ville
+     *
+     * @param \HomeBundle\Entity\Ville $ville
+     */
+    public function removeVille(\HomeBundle\Entity\Ville $ville)
+    {
+        $this->villes->removeElement($ville);
+    }
+
+    /**
+     * Get villes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getVilles()
+    {
+        return $this->villes;
+    }
+}

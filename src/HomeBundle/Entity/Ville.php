@@ -36,7 +36,7 @@ class Ville
     private $codePostal;
 
     /**
-    * @ORM\ManyToOne(targetEntity="Region")
+    * @ORM\ManyToOne(targetEntity="Region",inversedBy="villes")
     * @ORM\JoinColumn(nullable=false)
     */   
     private $region;
