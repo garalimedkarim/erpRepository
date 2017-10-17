@@ -1,0 +1,201 @@
+<style>
+.tr{text-align:right;font-weight:bold;}
+</style>
+
+<!-- {{dump(form)}} -->
+
+{% for entity in form.children %}
+	{% if entity.vars.name != '_token' %}
+			<!-- {{dump(entity.vars.name)}} -->
+			<div class="form-group row">
+				{{ form_label(attribute(form,entity.vars.name), null, { 'label_attr': {'class': 'col-sm-4 col-form-label tr'} }) }}
+				{{ form_errors(attribute(form,entity.vars.name)) }}
+				<div class="col-sm-4">
+					{{ form_widget(attribute(form,entity.vars.name) ,{'attr': {'class': 'form-control form-control-sm'} }) }}
+				</div>
+			</div>	
+
+	{% endif %}
+{% endfor%}
+{#	<div class="form-group row">
+		{{ form_label(form.nomFournisseur) }}
+      <div class="col-sm-4">
+        {{ form_widget(form.nomFournisseur) }}
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputPassword3" class="col-sm-4 col-form-label tr">Password</label>
+      <div class="col-sm-4">
+        <input type="password" class="form-control form-control-sm" id="inputPassword3" placeholder="Password">
+      </div>
+    </div>
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-legend col-sm-4 tr">Radios</legend>
+        <div class="col-sm-4">
+          <div class="form-check">
+            <label class="form-check-label ">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+              Option one is this and that&mdash;be sure to include why it's great
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              Option two can be something else and selecting it will deselect option one
+            </label>
+          </div>
+          <div class="form-check disabled">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+              Option three is disabled
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <div class="form-group row">
+      <div class="col-sm-6">Checkbox</div>
+      <div class="col-sm-6">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox"> Check me out
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-6">
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </div>
+    </div>
+#}
+
+<!-- old one -->
+{#
+		<div class="form-row">   <!-- justify-content-center -->
+			<div class="form-group col-md-3 ">
+				{{ form_row(form.nomFournisseur) }}
+			</div>
+			<div class="form-group col-md-3 ">
+				{{ form_row(form.famille) }}
+			</div>			
+		</div>
+		
+		<div class="form-row">
+			<div class="form-group col-md-3">
+				{{ form_row(form.ville) }}
+			</div>
+			<div class="form-group col-md-6">			
+				{{ form_row(form.adresse) }}
+			</div>
+			<div class="form-group col-md-3 ">
+				{{ form_row(form.postal) }}
+			</div>			
+		</div>
+		
+		<div class="form-row">   <!-- justify-content-center -->
+			<div class="form-group col-md-3 ">
+				{{ form_row(form.codeTva) }}
+			</div>
+		</div>
+		<br>		
+		<legend class="legend">Contacts :</legend>
+		
+		<div class="form-row">   <!-- justify-content-center -->
+			<div class="form-group col-md-3 ">
+				{{ form_row(form.tel) }}
+			</div>
+
+			<div class="form-group col-md-3 ">
+				{{ form_row(form.tel1) }}
+			</div>
+
+			<div class="form-group col-md-3 ">
+				{{ form_row(form.tel2) }}
+			</div>
+		</div>
+		<div class="form-row">   <!-- justify-content-center -->
+			<div class="form-group col-md-3 ">
+				{{ form_row(form.fax) }}
+			</div>
+		</div>
+		<div class="form-row">   <!-- justify-content-center -->
+			<div class="form-group col-md-3 ">
+				{{ form_row(form.contact) }}
+			</div>
+
+			<div class="form-group col-md-3 ">
+				{{ form_row(form.gsm) }}
+			</div>
+		</div>
+		<div class="form-row">   <!-- justify-content-center -->
+			<div class="form-group col-md-3 ">
+				{{ form_row(form.contact1) }}
+			</div>
+
+			<div class="form-group col-md-3 ">
+				{{ form_row(form.gsm1) }}
+			</div>
+		</div>
+		<div class="form-row">   <!-- justify-content-center -->
+			<div class="form-group col-md-3 ">
+				{{ form_row(form.contact2) }}
+			</div>
+
+			<div class="form-group col-md-3 ">
+				{{ form_row(form.gsm2) }}
+			</div>
+		</div>
+		<div class="form-row">   <!-- justify-content-center -->
+			<div class="form-group col-md-3 ">
+				{{ form_row(form.contact3) }}
+			</div>
+
+			<div class="form-group col-md-3 ">
+				{{ form_row(form.gsm3) }}
+			</div>
+		</div>
+		<div class="form-row">   <!-- justify-content-center -->
+			<div class="form-group col-md-3 ">
+				{{ form_row(form.echange) }}
+			</div>
+		</div>
+		<div class="form-row">   <!-- justify-content-center -->
+			<div class="form-group col-md-3 ">
+				{{ form_row(form.modereg) }}
+			</div>
+		</div>
+		<div class="form-row">   <!-- justify-content-center -->
+			<div class="form-group col-md-3 ">
+				{{ form_row(form.mail) }}
+			</div>
+		</div>
+		<div class="form-row">   <!-- justify-content-center -->
+
+		</div>
+		<div class="form-row">   <!-- justify-content-center -->
+
+		</div>
+		<div class="form-row">   <!-- justify-content-center -->
+			<div class="form-group col-md-3 ">
+				{{ form_row(form.frs) }}
+			</div>
+		</div>
+		<div class="form-row">   <!-- justify-content-center -->
+			<div class="form-group col-md-3 ">
+				{{ form_row(form.remise) }}
+			</div>
+		</div>
+		<div class="form-row">   <!-- justify-content-center -->
+			<div class="form-group col-md-3 ">
+				{{ form_row(form.solde) }}
+			</div>
+		</div>
+		<div class="form-row">   <!-- justify-content-center -->
+			<div class="form-group col-md-3 ">
+				{{ form_row(form.timbre) }}
+			</div>
+		</div>
+		
+#}		

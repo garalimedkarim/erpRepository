@@ -1,0 +1,61 @@
+{% extends 'base2.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block title %}
+	{{ parent() }} 
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block title_tab %}
+	<ol class="breadcrumb">
+	   <!-- <li class="breadcrumb-item"> -->
+			   <!-- <a href="#">Dashboard</a> -->
+	   <!-- </li> -->
+	   <h5>
+			<li class="breadcrumb-item">
+				<span class="fa fa-truck"></span> &nbsp;Mes Fournisseurs
+			</li>	
+			<li class="breadcrumb-item active">Ajouter un fournisseur			
+				
+		   </li>
+	   </h5>
+	</ol>
+{% endblock %}
+
+{% block body %}
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8"> 
+			<span class="legend"> Informations génerales </span>
+		</div>
+	</div>
+	{{ form_start(form) }}
+		{{ include("HomeBundle:Fournisseur:form_fournisseur.html.twig") }}
+		<div class="form-group row">
+		<div class="col-sm-4"></div>
+			<div class="col-sm-4" >
+				<input class="btn btn-primary btn-sm" style="width:100%;" type="submit" value="Create" />
+			</div>
+		</div>	
+    {{ form_end(form) }}
+
+    <!-- <ul> -->
+        <!-- <li> -->
+            <!-- <a href="{{ path('fournisseur_index') }}">Back to the list</a> -->
+        <!-- </li> -->
+    <!-- </ul> -->
+</div>	
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+		<script>
+		$(document).ready(function(){
+			$('#fournisseurs_item').addClass("active");
+		});	
+		</script>
+{% endblock %}

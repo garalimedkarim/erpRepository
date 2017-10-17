@@ -1,0 +1,20 @@
+home_fournisseur:
+    resource: "@HomeBundle/Resources/config/routing/fournisseur.yml"
+    prefix:   /fournisseur
+
+home_homepage:
+    path:     /
+    defaults: { _controller: HomeBundle:Home:home }
+    
+home_dashbord:
+    path:     /dashbord
+    defaults: { _controller: HomeBundle:Home:dashbord }
+    
+# home_fournisseurs:
+    # path:     /fournisseurs
+    # defaults: { _controller: HomeBundle:Fournisseur:fournisseur }  
+
+# home_add_fournisseur:
+    # path:     /fournisseurs/add
+    # defaults: { _controller: HomeBundle:Fournisseur:addFournisseur }      
+    

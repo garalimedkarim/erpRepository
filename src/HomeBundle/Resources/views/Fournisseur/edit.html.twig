@@ -1,0 +1,46 @@
+{% extends 'base2.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block title %}
+	{{ parent() }} 
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block title_tab %}
+	<!-- Breadcrumbs -->
+	<ol class="breadcrumb">
+		<!-- <li class="breadcrumb-item"> -->
+			<!-- <a href="#">Dashboard</a> -->
+		<!-- </li> -->
+		<li class="breadcrumb-item ">Mes Fournisseurs</li>
+		<li class="breadcrumb-item active">Modifier un fournisseur</li>
+	</ol>
+{% endblock %}
+{% block body %}
+ <!-- {# {% form_theme edit_form 'form_table_layout_fournisseur.html.twig' %} #} -->
+<div class="container">
+	{{ form_start(form) }}
+		{{ include("HomeBundle:Fournisseur:form_fournisseur.html.twig") }}
+		
+		<div class="form-group row">
+		<div class="col-sm-4"></div>
+			<div class="col-sm-4" >
+				<input class="btn btn-warning btn-sm" style="width:100%;color:white" type="submit" value="Modifier" />
+			</div>
+		</div>		
+	{{ form_end(form) }}
+
+</div>	
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+		<script>
+		$(document).ready(function(){
+			$('#fournisseurs_item').addClass("active");
+		});	
+		</script>
+{% endblock %}
