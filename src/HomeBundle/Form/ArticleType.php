@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class ArticleType extends AbstractType
 {
@@ -61,15 +62,17 @@ class ArticleType extends AbstractType
 
 			->add('libFam')
 			->add('cal')
-			->add('fournisseur')
-			->add('nomFournisseur')
+			->add('fournisseur', EntityType::class, 
+				array('class' => 'HomeBundle:Fournisseur','choice_label' => 'nomFournisseur')
+			)
+
 			->add('pr')
 			->add('code')
 			->add('codeUser')
 			->add('typeArt', ChoiceType::class, 
-							array(
-								'choices'  => array('Article commercial' => "commercial",'Article montée' => "montee"),
-								) 
+					array(
+						'choices'  => array('Article commercial' => "commercial",'Article montée' => "montee"),
+						) 
 				);
     }
     

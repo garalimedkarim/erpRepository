@@ -302,18 +302,11 @@ class Article
     private $cal;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="fournisseur", type="integer")
+     * Many Article have One Fournisseur.
+     * @ORM\ManyToOne(targetEntity="Fournisseur")
+     * @ORM\JoinColumn(name="fournisseur_id", referencedColumnName="id")
      */
     private $fournisseur;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nom_fournisseur", type="string", length=50)
-     */
-    private $nomFournisseur;
 
     /**
      * @var string
@@ -1315,54 +1308,6 @@ class Article
     }
 
     /**
-     * Set fournisseur
-     *
-     * @param integer $fournisseur
-     *
-     * @return Article
-     */
-    public function setFournisseur($fournisseur)
-    {
-        $this->fournisseur = $fournisseur;
-    
-        return $this;
-    }
-
-    /**
-     * Get fournisseur
-     *
-     * @return integer
-     */
-    public function getFournisseur()
-    {
-        return $this->fournisseur;
-    }
-
-    /**
-     * Set nomFournisseur
-     *
-     * @param string $nomFournisseur
-     *
-     * @return Article
-     */
-    public function setNomFournisseur($nomFournisseur)
-    {
-        $this->nomFournisseur = $nomFournisseur;
-    
-        return $this;
-    }
-
-    /**
-     * Get nomFournisseur
-     *
-     * @return string
-     */
-    public function getNomFournisseur()
-    {
-        return $this->nomFournisseur;
-    }
-
-    /**
      * Set pr
      *
      * @param string $pr
@@ -1457,5 +1402,28 @@ class Article
     {
         return $this->typeArt;
     }
-}
 
+    /**
+     * Set fournisseur
+     *
+     * @param \HomeBundle\Entity\Fournisseur $fournisseur
+     *
+     * @return Article
+     */
+    public function setFournisseur(\HomeBundle\Entity\Fournisseur $fournisseur = null)
+    {
+        $this->fournisseur = $fournisseur;
+    
+        return $this;
+    }
+
+    /**
+     * Get fournisseur
+     *
+     * @return \HomeBundle\Entity\Fournisseur
+     */
+    public function getFournisseur()
+    {
+        return $this->fournisseur;
+    }
+}
