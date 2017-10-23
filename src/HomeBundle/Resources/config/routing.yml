@@ -10,6 +10,10 @@ home_dashbord:
     path:     /dashbord
     defaults: { _controller: HomeBundle:Home:dashbord }
     
+home_article:
+    resource: "@HomeBundle/Resources/config/routing/article.yml"
+    prefix:   /article    
+    
 # home_fournisseurs:
     # path:     /fournisseurs
     # defaults: { _controller: HomeBundle:Fournisseur:fournisseur }  

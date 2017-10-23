@@ -1,0 +1,24 @@
+article_index:
+    path:     /
+    defaults: { _controller: "HomeBundle:Article:index" }
+    methods:  GET
+
+article_show:
+    path:     /{reference}/show
+    defaults: { _controller: "HomeBundle:Article:show" }
+    methods:  GET
+
+article_new:
+    path:     /new
+    defaults: { _controller: "HomeBundle:Article:new" }
+    methods:  [GET, POST]
+
+article_edit:
+    path:     /{reference}/edit
+    defaults: { _controller: "HomeBundle:Article:edit" }
+    methods:  [GET, POST]
+
+article_delete:
+    path:     /{reference}/delete
+    defaults: { _controller: "HomeBundle:Article:delete" }
+    methods:  DELETE

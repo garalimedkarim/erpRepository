@@ -15,11 +15,11 @@ class Article
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="reference", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    private $reference;
 
     /**
      * @var string
@@ -345,13 +345,13 @@ class Article
 
 
     /**
-     * Get id
+     * Get reference
      *
      * @return integer
      */
-    public function getId()
+    public function getReference()
     {
-        return $this->id;
+        return $this->reference;
     }
 
     /**

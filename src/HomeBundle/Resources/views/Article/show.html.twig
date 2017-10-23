@@ -1,0 +1,212 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Article</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Reference</th>
+                <td>{{ article.reference }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ article.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Prixa</th>
+                <td>{{ article.prixA }}</td>
+            </tr>
+            <tr>
+                <th>Prixaht</th>
+                <td>{{ article.prixAht }}</td>
+            </tr>
+            <tr>
+                <th>Prixattc</th>
+                <td>{{ article.prixAttc }}</td>
+            </tr>
+            <tr>
+                <th>Prixv</th>
+                <td>{{ article.prixV }}</td>
+            </tr>
+            <tr>
+                <th>Prixrevient</th>
+                <td>{{ article.prixRevient }}</td>
+            </tr>
+            <tr>
+                <th>Prixht</th>
+                <td>{{ article.prixHt }}</td>
+            </tr>
+            <tr>
+                <th>Prixdet</th>
+                <td>{{ article.prixDet }}</td>
+            </tr>
+            <tr>
+                <th>Unit</th>
+                <td>{{ article.unit }}</td>
+            </tr>
+            <tr>
+                <th>Tva</th>
+                <td>{{ article.tva }}</td>
+            </tr>
+            <tr>
+                <th>Stock</th>
+                <td>{{ article.stock }}</td>
+            </tr>
+            <tr>
+                <th>Stockalert</th>
+                <td>{{ article.stockAlert }}</td>
+            </tr>
+            <tr>
+                <th>Marge</th>
+                <td>{{ article.marge }}</td>
+            </tr>
+            <tr>
+                <th>Marged</th>
+                <td>{{ article.marged }}</td>
+            </tr>
+            <tr>
+                <th>Margemax</th>
+                <td>{{ article.margeMax }}</td>
+            </tr>
+            <tr>
+                <th>Rem</th>
+                <td>{{ article.rem }}</td>
+            </tr>
+            <tr>
+                <th>Stockmin</th>
+                <td>{{ article.stockMin }}</td>
+            </tr>
+            <tr>
+                <th>Fdc</th>
+                <td>{{ article.fdc }}</td>
+            </tr>
+            <tr>
+                <th>Idfamille</th>
+                <td>{{ article.idFamille }}</td>
+            </tr>
+            <tr>
+                <th>Rayon</th>
+                <td>{{ article.rayon }}</td>
+            </tr>
+            <tr>
+                <th>Etage</th>
+                <td>{{ article.etage }}</td>
+            </tr>
+            <tr>
+                <th>Codsoc</th>
+                <td>{{ article.codSoc }}</td>
+            </tr>
+            <tr>
+                <th>Usecreation</th>
+                <td>{{ article.useCreation }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ article.username }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{% if article.dateCreation %}{{ article.dateCreation|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Stkmag</th>
+                <td>{{ article.stkmag }}</td>
+            </tr>
+            <tr>
+                <th>Charge</th>
+                <td>{{ article.charge }}</td>
+            </tr>
+            <tr>
+                <th>Coef</th>
+                <td>{{ article.coef }}</td>
+            </tr>
+            <tr>
+                <th>Devise</th>
+                <td>{{ article.devise }}</td>
+            </tr>
+            <tr>
+                <th>Const</th>
+                <td>{{ article.const }}</td>
+            </tr>
+            <tr>
+                <th>Idsfam</th>
+                <td>{{ article.idsfam }}</td>
+            </tr>
+            <tr>
+                <th>Refcode</th>
+                <td>{{ article.refCode }}</td>
+            </tr>
+            <tr>
+                <th>Stkmax</th>
+                <td>{{ article.stkmax }}</td>
+            </tr>
+            <tr>
+                <th>Prixeuro</th>
+                <td>{{ article.prixEuro }}</td>
+            </tr>
+            <tr>
+                <th>Prixgros</th>
+                <td>{{ article.prixGros }}</td>
+            </tr>
+            <tr>
+                <th>Marge1</th>
+                <td>{{ article.marge1 }}</td>
+            </tr>
+            <tr>
+                <th>Marge2</th>
+                <td>{{ article.marge2 }}</td>
+            </tr>
+            <tr>
+                <th>Marge3</th>
+                <td>{{ article.marge3 }}</td>
+            </tr>
+            <tr>
+                <th>Libfam</th>
+                <td>{{ article.libFam }}</td>
+            </tr>
+            <tr>
+                <th>Cal</th>
+                <td>{{ article.cal }}</td>
+            </tr>
+            <tr>
+                <th>Fournisseur</th>
+                <td>{{ article.fournisseur }}</td>
+            </tr>
+            <tr>
+                <th>Nomfournisseur</th>
+                <td>{{ article.nomFournisseur }}</td>
+            </tr>
+            <tr>
+                <th>Pr</th>
+                <td>{{ article.pr }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ article.code }}</td>
+            </tr>
+            <tr>
+                <th>Codeuser</th>
+                <td>{{ article.codeUser }}</td>
+            </tr>
+            <tr>
+                <th>Typeart</th>
+                <td>{{ article.typeArt }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('article_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('article_edit', { 'reference': article.reference }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
