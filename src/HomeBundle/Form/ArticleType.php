@@ -17,38 +17,66 @@ class ArticleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+## CODE OBLIGATOIRE ?        
 			->add('libelle')
+
+			->add('typeArt', ChoiceType::class, 
+					array(
+						'choices'  => array('Article commercial' => "commercial",'Article montée' => "montee"),
+						) 
+				)			
+
 			->add('prixA')
 			->add('marge1')
 			->add('marge2')
 			->add('marge3')
+
+# prix detail 1 et 2
+			->add('prixGros')			
 			
 			->add('prixAht')
 			->add('prixHt')
-
+ 
 			->add('prixAttc')			
 			->add('prixV')
 
-			->add('prixRevient')
 
-			->add('prixDet')
-			->add('unit')
 			->add('tva')
-			->add('stock')
-			->add('stockAlert')
-			->add('marge')
-			->add('marged')
-			->add('margeMax')
-			->add('rem')
-			->add('stockMin')
 			->add('fdc')
-			->add('idFamille')
+			->add('margeMax')
+
+			->add('rem')								
+
+			->add('fournisseur', EntityType::class, 
+				array('class' => 'HomeBundle:Fournisseur','choice_label' => 'nomFournisseur')
+			)
+
+			->add('familleArticle', EntityType::class, 
+				array('class' => 'HomeBundle:FamilleArticle','choice_label' => 'nomFamille')
+			)			
+
 			->add('rayon')
 			->add('etage')
+			->add('unit')			
+
+			->add('stock')
+			->add('stockMin')			
+			->add('stockMax')			
+			->add('stockAlert')			
+
+/*			->add('dateCreation')*/
+
+
+/*			->add('prixRevient')
+			->add('prixDet')
+
+			->add('marge')
+			->add('marged')
+
 			->add('codSoc')
 			->add('useCreation')
 			->add('username')
-			->add('dateCreation')
+
 			->add('stkmag')
 			->add('charge')
 			->add('coef')
@@ -56,24 +84,17 @@ class ArticleType extends AbstractType
 			->add('const')
 			->add('idsfam')
 			->add('refCode')
-			->add('stkmax')
-			->add('prixEuro')
-			->add('prixGros')
 
-			->add('libFam')
+			->add('prixEuro')
+
 			->add('cal')
-			->add('fournisseur', EntityType::class, 
-				array('class' => 'HomeBundle:Fournisseur','choice_label' => 'nomFournisseur')
-			)
+
 
 			->add('pr')
 			->add('code')
-			->add('codeUser')
-			->add('typeArt', ChoiceType::class, 
-					array(
-						'choices'  => array('Article commercial' => "commercial",'Article montée' => "montee"),
-						) 
-				);
+			->add('codeUser')*/
+
+			;
     }
     
     /**

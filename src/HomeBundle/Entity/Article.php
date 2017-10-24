@@ -31,273 +31,260 @@ class Article
     /**
      * @var string
      *
-     * @ORM\Column(name="prix_a", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="prix_a", type="decimal", precision=10, scale=3, nullable=true)
      */
     private $prixA;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="prix_aht", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="prix_aht", type="decimal", precision=10, scale=3, nullable=true)
      */
     private $prixAht;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="prix_attc", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="prix_attc", type="decimal", precision=10, scale=3, nullable=true)
      */
     private $prixAttc;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="prix_v", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="prix_v", type="decimal", precision=10, scale=3, nullable=true)
      */
     private $prixV;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="prix_revient", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="prix_revient", type="decimal", precision=10, scale=3, nullable=true)
      */
     private $prixRevient;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="prix_ht", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="prix_ht", type="decimal", precision=10, scale=3, nullable=true)
      */
     private $prixHt;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="prix_det", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="prix_det", type="decimal", precision=10, scale=3, nullable=true)
      */
     private $prixDet;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="unit", type="string", length=30)
+     * @ORM\Column(name="unit", type="string", length=30, nullable=true)
      */
     private $unit;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="tva", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="tva", type="decimal", precision=10, scale=3, nullable=true)
      */
     private $tva;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="stock", type="integer")
-     */
-    private $stock;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="stock_alert", type="integer")
-     */
-    private $stockAlert;
-
-    /**
      * @var string
      *
-     * @ORM\Column(name="marge", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="marge", type="decimal", precision=10, scale=3, nullable=true)
      */
     private $marge;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="marged", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="marged", type="decimal", precision=10, scale=3, nullable=true)
      */
     private $marged;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="marge_max", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="marge_max", type="decimal", precision=10, scale=3, nullable=true)
      */
     private $margeMax;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="rem", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="rem", type="decimal", precision=10, scale=3, nullable=true)
      */
     private $rem;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="stock_min", type="integer")
+     * @ORM\Column(name="stock", type="integer", nullable=true)
+     */
+    private $stock;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="stock_alert", type="integer", nullable=true)
+     */
+    private $stockAlert;    
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="stock_min", type="integer", nullable=true)
      */
     private $stockMin;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="fdc", type="integer")
+     * @ORM\Column(name="stock_max", type="integer", nullable=true)
+     */
+    private $stockMax;
+
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="fdc", type="integer", nullable=true)
      */
     private $fdc;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="id_famille", type="string", length=40)
-     */
-    private $idFamille;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="rayon", type="string", length=30)
+     * @ORM\Column(name="rayon", type="string", length=30, nullable=true)
      */
     private $rayon;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="etage", type="string", length=30)
+     * @ORM\Column(name="etage", type="string", length=30, nullable=true)
      */
     private $etage;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="cod_soc", type="integer")
+     * @ORM\Column(name="cod_soc", type="integer", nullable=true)
      */
     private $codSoc;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="use_creation", type="string", length=30)
+     * @ORM\Column(name="use_creation", type="string", length=30, nullable=true)
      */
     private $useCreation;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="username", type="string", length=20)
+     * @ORM\Column(name="username", type="string", length=20, nullable=true)
      */
     private $username;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_creation", type="datetime")
+     * @ORM\Column(name="date_creation", type="datetime", nullable=true)
      */
     private $dateCreation;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="stkmag", type="integer")
+     * @ORM\Column(name="stkmag", type="integer", nullable=true)
      */
     private $stkmag;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="charge", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="charge", type="decimal", precision=10, scale=3, nullable=true)
      */
     private $charge;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="coef", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="coef", type="decimal", precision=10, scale=3, nullable=true)
      */
     private $coef;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="devise", type="string", length=5)
+     * @ORM\Column(name="devise", type="string", length=5, nullable=true)
      */
     private $devise;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="const", type="string", length=15)
+     * @ORM\Column(name="const", type="string", length=15, nullable=true)
      */
     private $const;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="idsfam", type="string", length=50)
+     * @ORM\Column(name="idsfam", type="string", length=50, nullable=true)
      */
     private $idsfam;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="ref_code", type="string", length=20)
+     * @ORM\Column(name="ref_code", type="string", length=20, nullable=true)
      */
     private $refCode;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="stkmax", type="integer")
-     */
-    private $stkmax;
-
-    /**
      * @var string
      *
-     * @ORM\Column(name="prix_euro", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="prix_euro", type="decimal", precision=10, scale=3, nullable=true)
      */
     private $prixEuro;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="prix_gros", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="prix_gros", type="decimal", precision=10, scale=3, nullable=true)
      */
     private $prixGros;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="marge1", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="marge1", type="decimal", precision=10, scale=3, nullable=true)
      */
     private $marge1;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="marge2", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="marge2", type="decimal", precision=10, scale=3, nullable=true)
      */
     private $marge2;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="marge3", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="marge3", type="decimal", precision=10, scale=3, nullable=true)
      */
     private $marge3;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="lib_fam", type="string", length=50)
-     */
-    private $libFam;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="cal", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="cal", type="decimal", precision=10, scale=3, nullable=true)
      */
     private $cal;
 
@@ -309,33 +296,45 @@ class Article
     private $fournisseur;
 
     /**
+     * Many Article have One Famille.
+     * @ORM\ManyToOne(targetEntity="FamilleArticle")
+     * @ORM\JoinColumn(name="famille_article_id", referencedColumnName="id")
+     */
+    private $familleArticle;    
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="pr", type="decimal", precision=10, scale=0)
+     * @ORM\Column(name="pr", type="decimal", precision=10, scale=3, nullable=true)
      */
     private $pr;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="code", type="string", length=20)
+     * @ORM\Column(name="code", type="string", length=20, nullable=true)
      */
     private $code;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="code_user", type="integer")
+     * @ORM\Column(name="code_user", type="integer", nullable=true)
      */
     private $codeUser;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="type_art", type="string", length=20)
+     * @ORM\Column(name="type_art", type="string", length=20, nullable=true)
      */
     private $typeArt;
 
+
+    public function __construct()
+    {
+        $this->dateCreation = new \DateTime();
+    }
 
     /**
      * Get reference
@@ -756,6 +755,30 @@ class Article
     }
 
     /**
+     * Set stockMax
+     *
+     * @param integer $stockMax
+     *
+     * @return Article
+     */
+    public function setStockMax($stockMax)
+    {
+        $this->stockMax = $stockMax;
+    
+        return $this;
+    }
+
+    /**
+     * Get stockMax
+     *
+     * @return integer
+     */
+    public function getStockMax()
+    {
+        return $this->stockMax;
+    }    
+
+    /**
      * Set fdc
      *
      * @param integer $fdc
@@ -777,30 +800,6 @@ class Article
     public function getFdc()
     {
         return $this->fdc;
-    }
-
-    /**
-     * Set idFamille
-     *
-     * @param string $idFamille
-     *
-     * @return Article
-     */
-    public function setIdFamille($idFamille)
-    {
-        $this->idFamille = $idFamille;
-    
-        return $this;
-    }
-
-    /**
-     * Get idFamille
-     *
-     * @return string
-     */
-    public function getIdFamille()
-    {
-        return $this->idFamille;
     }
 
     /**
@@ -1116,30 +1115,6 @@ class Article
     }
 
     /**
-     * Set stkmax
-     *
-     * @param integer $stkmax
-     *
-     * @return Article
-     */
-    public function setStkmax($stkmax)
-    {
-        $this->stkmax = $stkmax;
-    
-        return $this;
-    }
-
-    /**
-     * Get stkmax
-     *
-     * @return integer
-     */
-    public function getStkmax()
-    {
-        return $this->stkmax;
-    }
-
-    /**
      * Set prixEuro
      *
      * @param string $prixEuro
@@ -1259,29 +1234,6 @@ class Article
         return $this->marge3;
     }
 
-    /**
-     * Set libFam
-     *
-     * @param string $libFam
-     *
-     * @return Article
-     */
-    public function setLibFam($libFam)
-    {
-        $this->libFam = $libFam;
-    
-        return $this;
-    }
-
-    /**
-     * Get libFam
-     *
-     * @return string
-     */
-    public function getLibFam()
-    {
-        return $this->libFam;
-    }
 
     /**
      * Set cal
@@ -1425,5 +1377,29 @@ class Article
     public function getFournisseur()
     {
         return $this->fournisseur;
+    }
+
+    /**
+     * Set familleArticle
+     *
+     * @param \HomeBundle\Entity\FamilleArticle $familleArticle
+     *
+     * @return Article
+     */
+    public function setFamilleArticle(\HomeBundle\Entity\FamilleArticle $familleArticle = null)
+    {
+        $this->familleArticle = $familleArticle;
+    
+        return $this;
+    }
+
+    /**
+     * Get familleArticle
+     *
+     * @return \HomeBundle\Entity\FamilleArticle
+     */
+    public function getFamilleArticle()
+    {
+        return $this->familleArticle;
     }
 }
