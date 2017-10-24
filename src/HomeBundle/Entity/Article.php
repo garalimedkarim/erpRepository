@@ -12,6 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Article
 {
+    # Article Types :
+    private $articleTypes = array(  'Article commercial' => "commercial",
+                                    'Article montée' => "montee" );
+
     /**
      * @var int
      *
@@ -177,20 +181,6 @@ class Article
     private $codSoc;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="use_creation", type="string", length=30, nullable=true)
-     */
-    private $useCreation;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="username", type="string", length=20, nullable=true)
-     */
-    private $username;
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_creation", type="datetime", nullable=true)
@@ -231,13 +221,6 @@ class Article
      * @ORM\Column(name="const", type="string", length=15, nullable=true)
      */
     private $const;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="idsfam", type="string", length=50, nullable=true)
-     */
-    private $idsfam;
 
     /**
      * @var string
@@ -312,16 +295,9 @@ class Article
     /**
      * @var string
      *
-     * @ORM\Column(name="code", type="string", length=20, nullable=true)
+     * @ORM\Column(name="code", type="string", length=255, nullable=true)
      */
     private $code;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="code_user", type="integer", nullable=true)
-     */
-    private $codeUser;
 
     /**
      * @var string
@@ -335,6 +311,11 @@ class Article
     {
         $this->dateCreation = new \DateTime();
     }
+
+    public function getArticleTypes()
+    {
+        return $this->articleTypes;
+    }    
 
     /**
      * Get reference
@@ -875,54 +856,6 @@ class Article
     }
 
     /**
-     * Set useCreation
-     *
-     * @param string $useCreation
-     *
-     * @return Article
-     */
-    public function setUseCreation($useCreation)
-    {
-        $this->useCreation = $useCreation;
-    
-        return $this;
-    }
-
-    /**
-     * Get useCreation
-     *
-     * @return string
-     */
-    public function getUseCreation()
-    {
-        return $this->useCreation;
-    }
-
-    /**
-     * Set username
-     *
-     * @param string $username
-     *
-     * @return Article
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-    
-        return $this;
-    }
-
-    /**
-     * Get username
-     *
-     * @return string
-     */
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    /**
      * Set dateCreation
      *
      * @param \DateTime $dateCreation
@@ -1064,30 +997,6 @@ class Article
     public function getConst()
     {
         return $this->const;
-    }
-
-    /**
-     * Set idsfam
-     *
-     * @param string $idsfam
-     *
-     * @return Article
-     */
-    public function setIdsfam($idsfam)
-    {
-        $this->idsfam = $idsfam;
-    
-        return $this;
-    }
-
-    /**
-     * Get idsfam
-     *
-     * @return string
-     */
-    public function getIdsfam()
-    {
-        return $this->idsfam;
     }
 
     /**
@@ -1305,30 +1214,6 @@ class Article
     public function getCode()
     {
         return $this->code;
-    }
-
-    /**
-     * Set codeUser
-     *
-     * @param integer $codeUser
-     *
-     * @return Article
-     */
-    public function setCodeUser($codeUser)
-    {
-        $this->codeUser = $codeUser;
-    
-        return $this;
-    }
-
-    /**
-     * Get codeUser
-     *
-     * @return integer
-     */
-    public function getCodeUser()
-    {
-        return $this->codeUser;
     }
 
     /**

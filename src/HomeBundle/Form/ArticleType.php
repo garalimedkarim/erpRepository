@@ -8,6 +8,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+
+
 
 class ArticleType extends AbstractType
 {
@@ -16,17 +20,21 @@ class ArticleType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
         $builder
-## CODE OBLIGATOIRE ?        
+			->add('code')        
 			->add('libelle')
 
 			->add('typeArt', ChoiceType::class, 
 					array(
-						'choices'  => array('Article commercial' => "commercial",'Article montée' => "montee"),
+						'choices'  => $builder->getData()->getArticleTypes(),
 						) 
 				)			
 
-			->add('prixA')
+			->add('prixA', NumberType::class, array(
+				    'scale' 	=> 3,
+				    'grouping' 	=> true,
+				))
 			->add('marge1')
 			->add('marge2')
 			->add('marge3')
@@ -91,7 +99,7 @@ class ArticleType extends AbstractType
 
 
 			->add('pr')
-			->add('code')
+			
 			->add('codeUser')*/
 
 			;

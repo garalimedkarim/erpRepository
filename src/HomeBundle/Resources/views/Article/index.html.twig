@@ -29,15 +29,14 @@
                 <th>Rayon</th>
                 <th>Etage</th>
                 <th>Codsoc</th>
-                <th>Usecreation</th>
-                <th>Username</th>
+
                 <th>Datecreation</th>
                 <th>Stkmag</th>
                 <th>Charge</th>
                 <th>Coef</th>
                 <th>Devise</th>
                 <th>Const</th>
-                <th>Idsfam</th>
+
                 <th>Refcode</th>
                 <th>stockMax</th>
                 <th>Prixeuro</th>
@@ -50,7 +49,7 @@
                 <th>Fournisseur</th>
                 <th>Pr</th>
                 <th>Code</th>
-                <th>Codeuser</th>
+
                 <th>Typeart</th>
                 <th>Actions</th>
             </tr>
@@ -81,15 +80,14 @@
                 <td>{{ article.rayon }}</td>
                 <td>{{ article.etage }}</td>
                 <td>{{ article.codSoc }}</td>
-                <td>{{ article.useCreation }}</td>
-                <td>{{ article.username }}</td>
+
                 <td>{% if article.dateCreation %}{{ article.dateCreation|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ article.stkmag }}</td>
                 <td>{{ article.charge }}</td>
                 <td>{{ article.coef }}</td>
                 <td>{{ article.devise }}</td>
                 <td>{{ article.const }}</td>
-                <td>{{ article.idsfam }}</td>
+
                 <td>{{ article.refCode }}</td>
                 <td>{{ article.stockMax }}</td>
                 <td>{{ article.prixEuro }}</td>
@@ -103,7 +101,7 @@
 
                 <td>{{ article.pr }}</td>
                 <td>{{ article.code }}</td>
-                <td>{{ article.codeUser }}</td>
+
                 <td>{{ article.typeArt }}</td>
                 <td>
                     <ul>

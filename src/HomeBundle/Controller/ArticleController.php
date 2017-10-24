@@ -76,7 +76,6 @@ class ArticleController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $article->setLibelle("a15");
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
