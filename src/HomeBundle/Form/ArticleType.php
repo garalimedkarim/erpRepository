@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\PercentType ;
 
 
 
@@ -20,6 +21,8 @@ class ArticleType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+/*if (empty($builder->getData()->getMarge1())?0:$builder->getData()->getMarge1())
+	die("aaa");*/
 
         $builder
 			->add('code')        
@@ -32,26 +35,49 @@ class ArticleType extends AbstractType
 				)			
 
 			->add('prixA', NumberType::class, array(
-				    'scale' 	=> 3,
-				    'grouping' 	=> true,
+				    'empty_data' 		=> 0, 
 				))
-			->add('marge1')
-			->add('marge2')
-			->add('marge3')
+			->add('marge1', PercentType::class, array(
+				    'type'		=> 'integer',
+				))
+			->add('marge2', PercentType::class, array(
+					'type'		=> 'integer',					
+				))
+			->add('marge3', PercentType::class, array(
+					'type'		=> 'integer',					
+				))
 
-# prix detail 1 et 2
-			->add('prixGros')			
+			->add('prixDetail1', NumberType::class)			
+			->add('prixDetail2', NumberType::class)			
+			->add('prixGros', NumberType::class, array(
+				    'empty_data' 		=> 0,
+				))			
 			
-			->add('prixAht')
-			->add('prixHt')
+			->add('prixAht', NumberType::class, array(
+				    'empty_data' 		=> 0,
+				))
+			->add('prixHt', NumberType::class, array(
+				    'empty_data' 		=> 0,
+				))
  
-			->add('prixAttc')			
-			->add('prixV')
+			->add('prixAttc', NumberType::class, array(
+				    'empty_data' 		=> 0,
+				))			
+			->add('prixV', NumberType::class, array(
+				    'empty_data' 		=> 0,
+				))
 
 
-			->add('tva')
+			->add('tva', ChoiceType::class, 
+					array(
+						'choices'  => $builder->getData()->getTvaArray(),
+						) 
+				)
+
 			->add('fdc')
-			->add('margeMax')
+			->add('margeMax', NumberType::class, array(
+				    'empty_data' 		=> 0,
+				))
 
 			->add('rem')								
 

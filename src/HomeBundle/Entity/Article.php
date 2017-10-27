@@ -4,6 +4,8 @@ namespace HomeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * Article
  *
@@ -12,9 +14,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Article
 {
-    # Article Types :
+    # Constantes :
     private $articleTypes = array(  'Article commercial' => "commercial",
                                     'Article montée' => "montee" );
+
+    private $tvaArray = array(6=>6,12=>12,18=>18,24=>24);
 
     /**
      * @var int
@@ -37,28 +41,28 @@ class Article
      *
      * @ORM\Column(name="prix_a", type="decimal", precision=10, scale=3, nullable=true)
      */
-    private $prixA;
+    private $prixA = 0;
 
     /**
      * @var string
      *
      * @ORM\Column(name="prix_aht", type="decimal", precision=10, scale=3, nullable=true)
      */
-    private $prixAht;
+    private $prixAht = 0;
 
     /**
      * @var string
      *
      * @ORM\Column(name="prix_attc", type="decimal", precision=10, scale=3, nullable=true)
      */
-    private $prixAttc;
+    private $prixAttc = 0;
 
     /**
      * @var string
      *
      * @ORM\Column(name="prix_v", type="decimal", precision=10, scale=3, nullable=true)
      */
-    private $prixV;
+    private $prixV = 0;
 
     /**
      * @var string
@@ -72,14 +76,21 @@ class Article
      *
      * @ORM\Column(name="prix_ht", type="decimal", precision=10, scale=3, nullable=true)
      */
-    private $prixHt;
+    private $prixHt = 0;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="prix_det", type="decimal", precision=10, scale=3, nullable=true)
+     * @ORM\Column(name="prix_detail_1", type="decimal", precision=10, scale=3, nullable=true)
      */
-    private $prixDet;
+    private $prixDetail1 = 0;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prix_detail_2", type="decimal", precision=10, scale=3, nullable=true)
+     */
+    private $prixDetail2 = 0;    
 
     /**
      * @var string
@@ -114,7 +125,7 @@ class Article
      *
      * @ORM\Column(name="marge_max", type="decimal", precision=10, scale=3, nullable=true)
      */
-    private $margeMax;
+    private $margeMax = 0;
 
     /**
      * @var string
@@ -241,28 +252,46 @@ class Article
      *
      * @ORM\Column(name="prix_gros", type="decimal", precision=10, scale=3, nullable=true)
      */
-    private $prixGros;
+    private $prixGros = 0;
 
     /**
+     * @Assert\Range(
+     *      min = 0,
+     *      max = 100,
+     *      minMessage = "Undefined value",
+     *      maxMessage = "Undefined value"
+     * )    
      * @var string
      *
-     * @ORM\Column(name="marge1", type="decimal", precision=10, scale=3, nullable=true)
+     * @ORM\Column(name="marge1", type="decimal", precision=6, scale=3, nullable=true)
      */
-    private $marge1;
+    private $marge1 = 0;
 
     /**
+     * @Assert\Range(
+     *      min = 0,
+     *      max = 100,
+     *      minMessage = "Undefined value",
+     *      maxMessage = "Undefined value"
+     * )       
      * @var string
      *
-     * @ORM\Column(name="marge2", type="decimal", precision=10, scale=3, nullable=true)
+     * @ORM\Column(name="marge2", type="decimal", precision=6, scale=3, nullable=true)
      */
-    private $marge2;
+    private $marge2 = 0;
 
     /**
+     * @Assert\Range(
+     *      min = 0,
+     *      max = 100,
+     *      minMessage = "Undefined value",
+     *      maxMessage = "Undefined value"
+     * )       
      * @var string
      *
-     * @ORM\Column(name="marge3", type="decimal", precision=10, scale=3, nullable=true)
+     * @ORM\Column(name="marge3", type="decimal", precision=6, scale=3, nullable=true)
      */
-    private $marge3;
+    private $marge3 = 0;
 
     /**
      * @var string
@@ -295,7 +324,7 @@ class Article
     /**
      * @var string
      *
-     * @ORM\Column(name="code", type="string", length=255, nullable=true)
+     * @ORM\Column(name="code", type="string", length=255)
      */
     private $code;
 
@@ -311,6 +340,11 @@ class Article
     {
         $this->dateCreation = new \DateTime();
     }
+
+    public function getTvaArray()
+    {
+        return $this->tvaArray;
+    }      
 
     public function getArticleTypes()
     {
@@ -496,28 +530,52 @@ class Article
     }
 
     /**
-     * Set prixDet
+     * Set prixDetail1
      *
-     * @param string $prixDet
+     * @param string $prixDetail1
      *
      * @return Article
      */
-    public function setPrixDet($prixDet)
+    public function setPrixDetail1($prixDetail1)
     {
-        $this->prixDet = $prixDet;
+        $this->prixDetail1 = $prixDetail1;
     
         return $this;
     }
 
     /**
-     * Get prixDet
+     * Get prixDetail1
      *
      * @return string
      */
-    public function getPrixDet()
+    public function getPrixDetail1()
     {
-        return $this->prixDet;
+        return $this->prixDetail1;
     }
+
+    /**
+     * Set prixDetail2
+     *
+     * @param string $prixDetail2
+     *
+     * @return Article
+     */
+    public function setPrixDetail2($prixDetail2)
+    {
+        $this->prixDetail2 = $prixDetail2;
+    
+        return $this;
+    }
+
+    /**
+     * Get prixDetail2
+     *
+     * @return string
+     */
+    public function getPrixDetail2()
+    {
+        return $this->prixDetail2;
+    }    
 
     /**
      * Set unit
