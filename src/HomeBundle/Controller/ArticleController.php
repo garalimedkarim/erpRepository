@@ -86,7 +86,7 @@ class ArticleController extends Controller
 
         return $this->render('HomeBundle:Article:edit.html.twig', array(
             'article' => $article,
-            'edit_form' => $editForm->createView(),
+            'form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
