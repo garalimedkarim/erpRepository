@@ -29,12 +29,13 @@ class FilesystemLoader extends \Twig_Loader_Filesystem
     /**
      * Constructor.
      *
-     * @param FileLocatorInterface        $locator A FileLocatorInterface instance
-     * @param TemplateNameParserInterface $parser  A TemplateNameParserInterface instance
+     * @param FileLocatorInterface        $locator  A FileLocatorInterface instance
+     * @param TemplateNameParserInterface $parser   A TemplateNameParserInterface instance
+     * @param string|null                 $rootPath The root path common to all relative paths (null for getcwd())
      */
-    public function __construct(FileLocatorInterface $locator, TemplateNameParserInterface $parser)
+    public function __construct(FileLocatorInterface $locator, TemplateNameParserInterface $parser, $rootPath = null)
     {
-        parent::__construct(array());
+        parent::__construct(array(), $rootPath);
 
         $this->locator = $locator;
         $this->parser = $parser;
@@ -58,6 +59,7 @@ class FilesystemLoader extends \Twig_Loader_Filesystem
      * Otherwise the template is located using the locator from the twig library.
      *
      * @param string|TemplateReferenceInterface $template The template
+     * @param bool                              $throw    When true, a \Twig_Error_Loader exception will be thrown if a template could not be found
      *
      * @return string The path to the template file
      *
@@ -87,7 +89,11 @@ class FilesystemLoader extends \Twig_Loader_Filesystem
         }
 
         if (false === $file || null === $file) {
-            throw $twigLoaderException;
+            if ($throw) {
+                throw $twigLoaderException;
+            }
+
+            return false;
         }
 
         return $this->cache[$logicalName] = $file;

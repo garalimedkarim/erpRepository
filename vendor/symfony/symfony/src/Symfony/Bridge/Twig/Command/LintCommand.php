@@ -61,7 +61,7 @@ class LintCommand extends Command
             ->setDescription('Lints a template and outputs encountered errors')
             ->addOption('format', null, InputOption::VALUE_REQUIRED, 'The output format', 'txt')
             ->addArgument('filename', InputArgument::IS_ARRAY)
-            ->setHelp(<<<EOF
+            ->setHelp(<<<'EOF'
 The <info>%command.name%</info> command lints a template and outputs to STDOUT
 the first encountered syntax error.
 
@@ -88,9 +88,7 @@ EOF
         $io = new SymfonyStyle($input, $output);
 
         if (null === $twig = $this->getTwigEnvironment()) {
-            $io->error('The Twig environment needs to be set.');
-
-            return 1;
+            throw new \RuntimeException('The Twig environment needs to be set.');
         }
 
         $filenames = $input->getArgument('filename');
@@ -105,7 +103,7 @@ EOF
                 $template .= fread(STDIN, 1024);
             }
 
-            return $this->display($input, $output, $io, array($this->validate($twig, $template, uniqid('sf_'))));
+            return $this->display($input, $output, $io, array($this->validate($twig, $template, uniqid('sf_', true))));
         }
 
         $filesInfo = $this->getFilesInfo($twig, $filenames);
@@ -142,7 +140,7 @@ EOF
         try {
             $temporaryLoader = new \Twig_Loader_Array(array((string) $file => $template));
             $twig->setLoader($temporaryLoader);
-            $nodeTree = $twig->parse($twig->tokenize($template, (string) $file));
+            $nodeTree = $twig->parse($twig->tokenize(new \Twig_Source($template, (string) $file)));
             $twig->compile($nodeTree);
             $twig->setLoader($realLoader);
         } catch (\Twig_Error $e) {
@@ -202,7 +200,7 @@ EOF
             }
         });
 
-        $output->writeln(json_encode($filesInfo, JSON_PRETTY_PRINT));
+        $output->writeln(json_encode($filesInfo, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 
         return min($errors, 1);
     }

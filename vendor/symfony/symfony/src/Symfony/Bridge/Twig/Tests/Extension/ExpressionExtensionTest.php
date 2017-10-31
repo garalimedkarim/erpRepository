@@ -11,12 +11,11 @@
 
 namespace Symfony\Bridge\Twig\Tests\Extension;
 
+use PHPUnit\Framework\TestCase;
 use Symfony\Bridge\Twig\Extension\ExpressionExtension;
 
-class ExpressionExtensionTest extends \PHPUnit_Framework_TestCase
+class ExpressionExtensionTest extends TestCase
 {
-    protected $helper;
-
     public function testExpressionCreation()
     {
         $template = "{{ expression('1 == 1') }}";

@@ -43,6 +43,9 @@ class CacheClearCommandTest extends TestCase
         $this->fs->remove($this->rootDir);
     }
 
+    /**
+     * @group legacy
+     */
     public function testCacheIsFreshAfterCacheClearedWithWarmup()
     {
         $input = new ArrayInput(array('cache:clear'));
@@ -57,11 +60,10 @@ class CacheClearCommandTest extends TestCase
         // simply check that cache is warmed up
         $this->assertGreaterThanOrEqual(1, count($metaFiles));
         $configCacheFactory = new ConfigCacheFactory(true);
-        $that = $this;
 
         foreach ($metaFiles as $file) {
-            $configCacheFactory->cache(substr($file, 0, -5), function () use ($that, $file) {
-                $that->fail(sprintf('Meta file "%s" is not fresh', (string) $file));
+            $configCacheFactory->cache(substr($file, 0, -5), function () use ($file) {
+                $this->fail(sprintf('Meta file "%s" is not fresh', (string) $file));
             });
         }
 
@@ -81,6 +83,6 @@ class CacheClearCommandTest extends TestCase
             }
         }
         $this->assertTrue($found, 'Kernel file should present as resource');
-        $this->assertRegExp(sprintf('/\'kernel.name\'\s*=>\s*\'%s\'/', $this->kernel->getName()), file_get_contents($containerFile), 'kernel.name is properly set on the dumped container');
+        $this->assertRegExp(sprintf('/\'kernel.container_class\'\s*=>\s*\'%s\'/', get_class($this->kernel->getContainer())), file_get_contents($containerFile), 'kernel.container_class is properly set on the dumped container');
     }
 }
