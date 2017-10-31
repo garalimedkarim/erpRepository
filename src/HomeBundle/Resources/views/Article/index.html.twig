@@ -1,4 +1,26 @@
-{% extends 'base.html.twig' %}
+{% extends 'base2.html.twig' %}
+
+{% block title %}
+	{{ parent() }} 
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block title_tab %}
+	<!-- Breadcrumbs -->
+	<ol class="breadcrumb">
+
+	   <li class="breadcrumb-item">
+			<h5><span class="fa fa-truck"></span> &nbsp;Mes Articles</h5>
+	   </li>
+	   <li>
+			<a class="flr" href="{{ path('article_new') }}">
+				<button type="button" class="btn btn-success btn-sm">Ajouter un article</button> </a>
+		</li>
+	</ol>
+{% endblock %}
 
 {% block body %}
     <h1>Articles list</h1>
@@ -57,8 +79,8 @@
         </thead>
         <tbody>
         {% for article in articles %}
-            <tr>
-                <td><a href="{{ path('article_show', { 'reference': article.reference }) }}">{{ article.reference }}</a></td>
+            <tr class="tr_article_tab" data-href="{{ path('article_show', { 'reference': article.reference }) }}">
+                <td>{{ article.reference }}</a></td>
                 <td>{{ article.libelle }}</td>
                 <td>{{ article.prixA }}</td>
                 <td>{{ article.prixAht }}</td>
@@ -120,9 +142,18 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('article_new') }}">Create a new article</a>
-        </li>
-    </ul>
 {% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+		<script>		
+			$(document).ready(function(){
+				$('#articles_item').addClass("active");					
+
+				$(".tr_article_tab").click(function() {
+					window.location = $(this).data("href");
+			});
+		});
+	</script>
+{% endblock %}	
