@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+use HomeBundle\Entity\Article;
+
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
@@ -21,8 +23,7 @@ class ArticleType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-/*if (empty($builder->getData()->getMarge1())?0:$builder->getData()->getMarge1())
-	die("aaa");*/
+	/*if (empty($builder->getData()->getMarge1())?0:$builder->getData()->getMarge1()) */
 
         $builder
 			->add('code')        
@@ -30,7 +31,7 @@ class ArticleType extends AbstractType
 
 			->add('typeArt', ChoiceType::class, 
 					array(
-						'choices'  => $builder->getData()->getArticleTypes(),
+						'choices'  => Article::$articleTypes,
 						) 
 				)			
 
@@ -70,7 +71,7 @@ class ArticleType extends AbstractType
 
 			->add('tva', ChoiceType::class, 
 					array(
-						'choices'  => $builder->getData()->getTvaArray(),
+						'choices'  => Article::$tvaArray,
 						) 
 				)
 

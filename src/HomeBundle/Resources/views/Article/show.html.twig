@@ -2,12 +2,22 @@
 
 {% block body %}
 
+
+	
+
 <h1>Article</h1>
 <div class="container">
 	<div class="row col-5">
 		<table class="table table-bordered table-striped table-hover">
 			<tbody>
-				<tr>
+				{% for property,value in article %}
+						<tr>
+							<th class="col-6">{{property|capitalize}}</th>
+							<td class="col-6"> {{value}}</td> 
+						</tr>					
+				{% endfor%}  
+{#				
+<!-- 				<tr>
 					<th class="col-6">Reference</th>
 					<td class="col-6">{{ article.reference }}</td>
 				</tr>
@@ -180,7 +190,7 @@
 				<tr>
 					<th>Typeart</th>
 					<td>{{ article.typeArt }}</td>
-				</tr>
+				</tr> --> #}
 			</tbody>
 		</table>
 	</div>

@@ -12,13 +12,13 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="article")
  * @ORM\Entity(repositoryClass="HomeBundle\Repository\ArticleRepository")
  */
-class Article
+class Article extends MyEntity
 {
     # Constantes :
-    private $articleTypes = array(  'Article commercial' => "commercial",
+    public static $articleTypes = array(  'Article commercial' => "commercial",
                                     'Article montée' => "montee" );
 
-    private $tvaArray = array(6=>6,12=>12,18=>18,24=>24);
+    public static $tvaArray = array(6=>6,12=>12,18=>18,24=>24);
 
     /**
      * @var int
@@ -341,15 +341,15 @@ class Article
         $this->dateCreation = new \DateTime();
     }
 
-    public function getTvaArray()
+    public function ObjectToArray()
     {
-        return $this->tvaArray;
-    }      
+        $result = parent::ObjectToArray();
 
-    public function getArticleTypes()
-    {
-        return $this->articleTypes;
-    }    
+        $result['fournisseur'] = $this->getFournisseur()->getNomFournisseur();
+        $result['familleArticle'] = $this->getFamilleArticle()->getNomFamille();
+
+        return $result;
+    }   
 
     /**
      * Get reference

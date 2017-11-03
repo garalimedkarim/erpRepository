@@ -60,7 +60,7 @@ class ArticleController extends Controller
         $deleteForm = $this->createDeleteForm($article);
 
         return $this->render('HomeBundle:Article:show.html.twig', array(
-            'article' => $article,
+            'article' => $article->ObjectToArray(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
