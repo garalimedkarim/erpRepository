@@ -1,13 +1,25 @@
-{% extends 'base.html.twig' %}
+{% extends 'base2.html.twig' %}
 
+{% block title %}
+	{{ parent() }} 
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block title_tab %}
+	<!-- Breadcrumbs -->
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item ">Mes Articles</li>
+		<li class="breadcrumb-item active"> Article</li>
+	</ol>
+{% endblock %}
 {% block body %}
 
-
-	
-
-<h1>Article</h1>
-<div class="container">
-	<div class="row col-5">
+<div class="container ">
+	<div class="row justify-content-start">
+	<div class="col-5">
 		<table class="table table-bordered table-striped table-hover">
 			<tbody>
 				{% for property,value in article %}
@@ -190,12 +202,28 @@
 				<tr>
 					<th>Typeart</th>
 					<td>{{ article.typeArt }}</td>
-				</tr> --> #}
+				</tr> --> #}				
 			</tbody>
 		</table>
+<!-- 		<table style="width:100%;max-width:100%;">
+	<tr>
+		<td> -->
+			<div class="text-center">
+					<a class="btn btn-primary btn-sm" style="width:49%;float:left;margin-right:1%" href="{{ path('article_index') }}">Retour à la liste</a>
+					
+					<a class="btn btn-warning btn-sm" style="width:24%;color:white;float:left;margin-right:1%" href="{{ path('article_edit', { 'reference': reference }) }}">Edit</a>
+					
+					{{ form_start(delete_form) }}		
+							<input class="btn btn-danger btn-sm" style="width:24%;float:left;" type="submit" value="Delete">	
+					{{ form_end(delete_form) }} 
+			</div>
+<!-- 		</td>
+	</tr>		
+		</table> -->
+	</div>	
 	</div>
-</div>
-    <ul>
+	
+<!--     <ul>
         <li>
             <a href="{{ path('article_index') }}">Back to the list</a>
         </li>
@@ -207,5 +235,21 @@
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
-    </ul>
+    </ul> -->	
+
+
+		
+	
+	
+</div>
+<br><br>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+		<script>
+		$(document).ready(function(){
+			$('#articles_item').addClass("active");
+		});	
+		</script>
 {% endblock %}

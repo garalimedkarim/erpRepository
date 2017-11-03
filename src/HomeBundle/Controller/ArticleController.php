@@ -61,6 +61,7 @@ class ArticleController extends Controller
 
         return $this->render('HomeBundle:Article:show.html.twig', array(
             'article' => $article->ObjectToArray(),
+            'reference'  => $article->getReference(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
