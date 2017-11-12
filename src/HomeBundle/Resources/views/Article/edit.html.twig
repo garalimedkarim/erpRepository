@@ -1,21 +1,52 @@
-{% extends 'base.html.twig' %}
-{% form_theme form 'form_table_layout_fournisseur.html.twig' %}
+{% extends 'base2.html.twig' %}
+
+{% block title %}
+	{{ parent() }} 
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block title_tab %}
+	<ol class="breadcrumb">
+	   <!-- <li class="breadcrumb-item"> -->
+			   <!-- <a href="#">Dashboard</a> -->
+	   <!-- </li> -->
+	   <h5>
+			<li class="breadcrumb-item">
+				<span class="fa fa-folder"></span> &nbsp;Mes Articles
+			</li>	
+			<li class="breadcrumb-item active">Modifier un article			
+				
+		   </li>
+	   </h5>
+	</ol>
+{% endblock %}
+
 {% block body %}
-    <h1>Article edit</h1>
+	{% form_theme form 'form_table_layout_fournisseur.html.twig' %}
+    
+	<div class="container">
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(form) }}
+		{{ form_start(form) }}
+			{{ form_widget(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('article_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+			<input class="btn btn-warning btn-sm" style="width:15%;float:left;margin-right:1%;margin-top:15px;" type="submit" value="Edit" />
+		{{ form_end(form) }}
+
+		{{ form_start(delete_form) }}
+			<input type="submit" class="btn btn-danger btn-sm" style="width:5%;float:left;margin-right:1%;margin-top:15px;" value="Delete">
+		{{ form_end(delete_form) }}		
+
+	</div>	
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+		<script>
+		$(document).ready(function(){
+			$('#articles_item').addClass("active");
+		});	
+		</script>
 {% endblock %}

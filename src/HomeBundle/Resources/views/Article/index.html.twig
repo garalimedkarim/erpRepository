@@ -23,125 +23,52 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Articles list</h1>
 
-    <table class="table table-bordered table-striped table-hover">
-        <thead>
-            <tr>
-                <th>Reference</th>
-                <th>Libelle</th>
-                <th>Prixa</th>
-                <th>Prixaht</th>
-                <th>Prixattc</th>
-                <th>Prixv</th>
-                <th>Prixrevient</th>
-                <th>Prixht</th>
-                <th>Prixdet1</th>
-				<th>Prixdet2</th>
-                <th>Unit</th>
-                <th>Tva</th>
-                <th>Stock</th>
-                <th>Stockalert</th>
-                <th>Marge</th>
-                <th>Marged</th>
-                <th>Margemax</th>
-                <th>Rem</th>
-                <th>Stockmin</th>
-                <th>Fdc</th>
-                <th>familleArticle</th>
-                <th>Rayon</th>
-                <th>Etage</th>
-                <th>Codsoc</th>
+	<div class="container">
+		<table class="table table-bordered table-striped table-hover">
+			<thead>
+				<tr>
+					<th>Reference</th>
+					<th>Libelle</th>
+					<th>familleArticle</th>
+					<th>Prixa</th>
+					<th>Stock</th>
+					<th>Stockmin</th>
+					<th>stockMax</th>
+					<th>Fournisseur</th>
 
-                <th>Datecreation</th>
-                <th>Stkmag</th>
-                <th>Charge</th>
-                <th>Coef</th>
-                <th>Devise</th>
-                <th>Const</th>
-
-                <th>Refcode</th>
-                <th>stockMax</th>
-                <th>Prixeuro</th>
-                <th>Prixgros</th>
-                <th>Marge1</th>
-                <th>Marge2</th>
-                <th>Marge3</th>
-
-                <th>Cal</th>
-                <th>Fournisseur</th>
-                <th>Pr</th>
-                <th>Code</th>
-
-                <th>Typeart</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for article in articles %}
-            <tr class="tr_article_tab" data-href="{{ path('article_show', { 'reference': article.reference }) }}">
-                <td>{{ article.reference }}</a></td>
-                <td>{{ article.libelle }}</td>
-                <td>{{ article.prixA }}</td>
-                <td>{{ article.prixAht }}</td>
-                <td>{{ article.prixAttc }}</td>
-                <td>{{ article.prixV }}</td>
-                <td>{{ article.prixRevient }}</td>
-                <td>{{ article.prixHt }}</td>
-                <td>{{ article.prixDetail1 }}</td>
-				<td>{{ article.prixDetail2 }}</td>
-                <td>{{ article.unit }}</td>
-                <td>{{ article.tva }}</td>
-                <td>{{ article.stock }}</td>
-                <td>{{ article.stockAlert }}</td>
-                <td>{{ article.marge }}</td>
-                <td>{{ article.marged }}</td>
-                <td>{{ article.margeMax }}</td>
-                <td>{{ article.rem }}</td>
-                <td>{{ article.stockMin }}</td>
-                <td>{{ article.fdc }}</td>
-                <td>{{ article.familleArticle.nomFamille }}</td>
-                <td>{{ article.rayon }}</td>
-                <td>{{ article.etage }}</td>
-                <td>{{ article.codSoc }}</td>
-
-                <td>{% if article.dateCreation %}{{ article.dateCreation|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ article.stkmag }}</td>
-                <td>{{ article.charge }}</td>
-                <td>{{ article.coef }}</td>
-                <td>{{ article.devise }}</td>
-                <td>{{ article.const }}</td>
-
-                <td>{{ article.refCode }}</td>
-                <td>{{ article.stockMax }}</td>
-                <td>{{ article.prixEuro }}</td>
-                <td>{{ article.prixGros }}</td>
-                <td>{{ article.marge1 }}</td>
-                <td>{{ article.marge2 }}</td>
-                <td>{{ article.marge3 }}</td>
-
-                <td>{{ article.cal }}</td>
-                <td>{{ article.fournisseur.nomFournisseur }}</td>
-
-                <td>{{ article.pr }}</td>
-                <td>{{ article.code }}</td>
-
-                <td>{{ article.typeArt }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('article_show', { 'reference': article.reference }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('article_edit', { 'reference': article.reference }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
+					<th>Valeur Stock </th>
+					<!-- <th>Actions</th> -->
+				</tr>
+			</thead>
+			<tbody>
+			{% for article in articles %}
+				<tr class="tr_article_tab" data-href="{{ path('article_show', { 'reference': article.reference }) }}">
+					<td>{{ article.reference }}</td>
+					<td>{{ article.libelle }}</td>
+					<td>{{ article.familleArticle.nomFamille }}</td>
+					<td>{{ article.prixA }}</td>
+					<td>{{ article.stock }}</td>
+					<td>{{ article.stockMin }}</td>
+					<td>{{ article.stockMax }}</td>
+					<td>{{ article.fournisseur.nomFournisseur }}</td>
+					<td>{{ article.prixA * article.stock }} </td>
+					
+	<!--                 <td>
+						<ul>
+							<li>
+								<a href="{{ path('article_show', { 'reference': article.reference }) }}">show</a>
+							</li>
+							<li>
+								<a href="{{ path('article_edit', { 'reference': article.reference }) }}">edit</a>
+							</li>
+						</ul>
+					</td> -->
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
 {% endblock %}
 
 
