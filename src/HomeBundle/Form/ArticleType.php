@@ -48,10 +48,17 @@ class ArticleType extends AbstractType
 					'type'		=> 'integer',					
 				))
 
-			->add('prixDetail1', NumberType::class)			
-			->add('prixDetail2', NumberType::class)			
+			->add('prixDetail1', NumberType::class, array(
+				    'empty_data' 		=> 0,
+				    'attr' => array('disabled' => 'true')
+				))			
+			->add('prixDetail2', NumberType::class, array(
+				    'empty_data' 		=> 0,
+				    'attr' => array('disabled' => 'true')
+				))			
 			->add('prixGros', NumberType::class, array(
 				    'empty_data' 		=> 0,
+				    'attr' => array('disabled' => 'true')
 				))			
 			
 			->add('prixAht', NumberType::class, array(

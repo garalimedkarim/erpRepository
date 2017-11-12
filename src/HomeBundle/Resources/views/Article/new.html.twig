@@ -43,9 +43,28 @@
 
 {% block javascripts %}
     {{ parent() }}
-		<script>
+	<script>
 		$(document).ready(function(){
+
 			$('#articles_item').addClass("active");
-		});	
-		</script>
+			
+			synchronise_disabled_inputs();
+			
+		});
+		
+		function synchronise_disabled_inputs(){
+			$('#homebundle_article_marge1').on('input', function() {
+				prix_det_1 = $('#homebundle_article_prixA').val()*$('#homebundle_article_marge1').val();
+				$('#homebundle_article_prixDetail1').val(prix_det_1);
+			});	
+			$('#homebundle_article_marge2').on('input', function() {
+				prix_det_2 = $('#homebundle_article_prixA').val()*$('#homebundle_article_marge2').val();
+				$('#homebundle_article_prixDetail2').val(prix_det_2);
+			});	
+			$('#homebundle_article_marge3').on('input', function() {
+				prix_gros = $('#homebundle_article_prixA').val()*$('#homebundle_article_marge3').val();					
+				$('#homebundle_article_prixGros').val(prix_gros);
+			});				
+		}
+	</script>
 {% endblock %}
