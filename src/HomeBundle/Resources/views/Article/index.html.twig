@@ -44,7 +44,7 @@
 			<tbody>
 			{% for article in articles %}
 				<tr class="tr_article_tab" data-href="{{ path('article_show', { 'reference': article.reference }) }}">
-					<td>{{ article.reference }}</td>
+					<td> <img src="{{ asset('uploads/photo_articles/' ~ article.photoName) }}" class="img-thumbnail" width="30" height="30">  {{ article.reference }}</td>
 					<td>{{ article.libelle }}</td>
 					<td>{{ article.familleArticle.nomFamille }}</td>
 					<td>{{ article.prixA }}</td>

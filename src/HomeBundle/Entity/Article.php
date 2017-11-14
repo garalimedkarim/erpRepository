@@ -335,6 +335,19 @@ class Article extends MyEntity
      */
     private $typeArt;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="photo_name", type="string", length=255, nullable=true)
+     */
+    private $photoName;    
+
+    /**
+     * @Assert\Image(
+     * )
+     */
+    private $photo = null;
+
 
     public function __construct()
     {
@@ -359,6 +372,54 @@ class Article extends MyEntity
     public function getReference()
     {
         return $this->reference;
+    }
+
+    /**
+     * Set photoName
+     *
+     * @param string $photoName
+     *
+     * @return Article
+     */
+    public function setPhotoName($photoName)
+    {
+        $this->photoName = $photoName;
+    
+        return $this;
+    }
+
+    /**
+     * Get photoName
+     *
+     * @return string
+     */
+    public function getPhotoName()
+    {
+        return $this->photoName;
+    }    
+
+    /**
+     * Set photo
+     *
+     * @param string $photo
+     *
+     * @return Photo
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+    
+        return $this;
+    }
+
+    /**
+     * Get photo
+     *
+     * @return string
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
     }
 
     /**

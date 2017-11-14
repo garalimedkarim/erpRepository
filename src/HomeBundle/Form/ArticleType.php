@@ -13,6 +13,8 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\PercentType ;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+
 
 
 
@@ -26,6 +28,11 @@ class ArticleType extends AbstractType
 	/*if (empty($builder->getData()->getMarge1())?0:$builder->getData()->getMarge1()) */
 
         $builder
+        	->add('photo', FileType::class, 
+					array(
+						'required'  => false,
+						)
+        	)	
 			->add('code')        
 			->add('libelle')
 
@@ -49,15 +56,12 @@ class ArticleType extends AbstractType
 				))
 
 			->add('prixDetail1', NumberType::class, array(
-				    'empty_data' 		=> 0,
 				    'attr' => array('disabled' => 'true')
 				))			
 			->add('prixDetail2', NumberType::class, array(
-				    'empty_data' 		=> 0,
 				    'attr' => array('disabled' => 'true')
 				))			
 			->add('prixGros', NumberType::class, array(
-				    'empty_data' 		=> 0,
 				    'attr' => array('disabled' => 'true')
 				))			
 			

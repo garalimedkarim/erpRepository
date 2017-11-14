@@ -39,6 +39,16 @@ class ArticleController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            
+            $photo = $form['photo']->getData();
+            if ($photo){
+                $now = new \DateTime('now');
+                $photoName = $article->getLibelle().$article->getFournisseur()->getNomFournisseur().$now->format('YmdHis').".".$photo->guessExtension();
+                $article->setPhotoName($photoName); 
+
+                $photo->move($this->getParameter('photo_articles_dir'),$photoName);
+            }else
+                $article->setPhotoName("article.png");
             $em->persist($article);
             $em->flush();
 
@@ -79,6 +89,16 @@ class ArticleController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
+
+            $photo = $article->getPhoto();
+            if ($photo){
+                $now = new \DateTime('now');
+                $photoName = $article->getLibelle().$article->getFournisseur()->getNomFournisseur().$now->format('YmdHis').".".$photo->guessExtension();
+                $article->setPhotoName($photoName); 
+
+                $photo->move($this->getParameter('photo_articles_dir'),$photoName);
+            }
+
             $em->persist($article);
             $em->flush();
 

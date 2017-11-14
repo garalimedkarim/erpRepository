@@ -9,6 +9,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
+    photo_articles_dir: '%kernel.root_dir%/../web/uploads/photo_articles'    
 
 framework:
     #esi:             ~
@@ -38,6 +39,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        # web_path: "%kernel.root_dir%/../web"
     # form_themes: 
      # -    'form_table_layout.html.twig'
 

@@ -22,6 +22,11 @@
 	<div class="col-5">
 		<table class="table table-bordered table-striped table-hover">
 			<tbody>
+				<tr>
+					<td colspan="2" style="text-align:center">  
+						<img  src="{{ asset('uploads/photo_articles/' ~ article.photoName) }}" width="180" height="176" class="img-thumbnail" >
+					</td>
+				</tr>
 				{% for property,value in article %}
 						<tr>
 							<th class="col-6">{{property|capitalize}}</th>
