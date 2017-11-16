@@ -28,8 +28,10 @@
 		<table class="table table-bordered table-striped table-hover">
 			<thead>
 				<tr>
-					<th>Reference</th>
+					<th> </th>
 					<th>Libelle</th>
+					<th>Reference</th>
+					
 					<th>familleArticle</th>
 					<th>Prixa</th>
 					<th>Stock</th>
@@ -44,8 +46,10 @@
 			<tbody>
 			{% for article in articles %}
 				<tr class="tr_article_tab" data-href="{{ path('article_show', { 'reference': article.reference }) }}">
-					<td> <img src="{{ asset('uploads/photo_articles/' ~ article.photoName) }}" class="img-thumbnail" width="30" height="30">  {{ article.reference }}</td>
+					<td> <img src="{{ asset('uploads/photo_articles/' ~ article.photoName) }}" class="img-thumbnail" width="30" height="30"> </td>
 					<td>{{ article.libelle }}</td>
+					<td>{{ article.reference }}</td>
+					
 					<td>{{ article.familleArticle.nomFamille }}</td>
 					<td>{{ article.prixA }}</td>
 					<td>{{ article.stock }}</td>
