@@ -1,0 +1,79 @@
+<style>
+.tr{text-align:right;font-weight:bold;}
+</style>
+
+	
+{% set expected_items = ['_token','languages'] %}	 {# ,'languages','language_levels' #}
+{% for entity in form.children %}
+	{% if entity.vars.name not in expected_items %}
+			<!-- {{dump(entity.vars.name)}} -->
+			<div class="form-group row">
+				{{ form_label(attribute(form,entity.vars.name), null, { 'label_attr': {'class': 'col-sm-4 col-form-label tr'} }) }}
+				{{ form_errors(attribute(form,entity.vars.name)) }}
+				<div class="col-sm-5">
+					{{ form_widget(attribute(form,entity.vars.name) ,{'attr': {'class': 'form-control form-control-sm'} }) }}
+				</div>
+			</div>	
+
+	{% endif %}
+{% endfor%}
+
+<div class="form-group row">
+	{{ form_label(form.languages, null, { 'label_attr': {'class': 'col-sm-4 col-form-label tr'} }) }}
+	{{ form_errors(form.languages) }}
+	<div id="languages" class="col-sm-5">
+		<div data-role="dynamic-fields">
+			<div class="dynamic-fields">
+				<div class="field_x">
+					<div style="float:left;width:40%" >
+						{{ form_widget(form.languages[0].language,{'attr': {'class': 'form-control form-control-sm'} }) }}
+					</div>
+
+					<div style="float:left;width:40%;margin-left:2%" >
+						{{ form_widget(form.languages[0].level,{'attr': {'class': 'form-control form-control-sm'} }) }}
+					</div>
+					{% if form.languages|length > 1 %}
+						<span class="btn btn-danger btn-sm " data-role="remove" style="float:right;text-align:center;width:15%;">
+							<span class="fa fa-minus"></span>
+						</span>
+					{% else %}
+						<span class="btn btn-primary btn-sm " data-role="add" style="float:right;text-align:center;width:15%;">
+							<span class="fa fa-plus"></span>
+						</span>
+					{% endif %}
+					<br>
+				</div>
+			</div>
+		</div>
+		
+		{% if  form.languages|length > 1 %}
+			{% for i in 1..form.languages|length-1  %}				
+				
+				<div data-role="dynamic-fields" >
+				<div class="dynamic-fields" >
+				<div class="field_x" style="margin-top:15px;">
+					<div style="float:left;width:40%" >
+						{{ form_widget(form.languages[i].language,{'attr': {'class': 'form-control form-control-sm'} }) }}
+					</div>
+
+					<div style="float:left;width:40%;margin-left:2%" >
+						{{ form_widget(form.languages[i].level,{'attr': {'class': 'form-control form-control-sm'} }) }}
+					</div>
+					{% if i < form.languages|length-1 %}				
+						<span class="btn btn-danger btn-sm " data-role="remove" style="float:right;text-align:center;width:15%;">
+							<span class="fa fa-minus"></span>
+						</span>
+					{% else %}
+						<span class="btn btn-primary btn-sm " data-role="add" style="float:right;text-align:center;width:15%;">
+							<span class="fa fa-plus"></span>
+						</span>
+					{% endif %}
+					<br>
+				</div>
+				</div>
+				</div>
+			{% endfor %}
+		{% endif %}
+	</div>
+</div>	
+

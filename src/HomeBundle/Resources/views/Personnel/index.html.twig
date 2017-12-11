@@ -1,0 +1,144 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}
+	{{ parent() }} 
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block title_tab %}
+	<!-- Breadcrumbs -->
+	<ol class="breadcrumb">
+
+	   <li class="breadcrumb-item">
+			<h5><span class="fa fa-truck"></span> &nbsp;Mon Personnel</h5>
+	   </li>
+	   <li>
+			<a class="flr" href="{{ path('personnel_new') }}">
+				<button type="button" class="btn btn-success btn-sm">Ajouter un personnel</button> </a>
+		</li>
+	</ol>
+{% endblock %}
+
+{% block body %}
+<h1>Personnels list</h1>
+
+<div class="container">
+	<table class="table table-bordered table-striped table-hover">
+		<thead>
+            <tr>
+<!--                 <th>Id</th> -->
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Sexe</th>
+                <th>Cin</th>
+<!--                 <th>Datenaissance</th>
+                <th>Nationalite</th> -->
+                <th>Gouvernerat</th>
+<!--                <th>Ville</th>
+                <th>Adresse</th>
+                <th>Codepostale</th>
+                 <th>Tel1</th>
+                <th>Tel2</th>
+                <th>Tel3</th>
+                <th>Mail1</th>
+                <th>Mail2</th>
+                <th>Permisvoiture</th> -->
+                <th>Profession</th>
+                <th>Societe</th>
+                <th>Niveauscolaire</th>
+ <!--                <th>Formations</th>
+                <th>Competances</th>
+                <th>Activiteprefere</th>
+                <th>Activiteprecedente</th>
+                <th>Tempslibre</th>
+                <th>Plusadonner</th>
+                <th>Remarques</th>
+                <th>Facebook</th>
+                <th>Twitter</th>
+                <th>Skype</th> -->
+                <th>Dateinscription</th>
+                <!-- <th>Langue</th> -->
+                <!-- <th>Actions</th> -->
+				<th> Action </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for personnel in personnels %}
+            <tr class="tr_personnel_tab" data-href="{{ path('personnel_show', { 'id': personnel.id }) }}">
+<!--                 <td><a href="{{ path('personnel_show', { 'id': personnel.id }) }}">{{ personnel.id }}</a></td> -->
+                <td>{{ personnel.nom }}</td>
+                <td>{{ personnel.prenom }}</td>
+                <td>{{ personnel.sexe }}</td>
+                <td>{{ personnel.cin }}</td>
+<!--                 <td>{{ personnel.dateNaissance |date("d/m/Y") }}</td>
+                <td>{{ personnel.nationalite }}</td> -->
+                <td>{{ personnel.gouvernerat }}</td>
+<!--                <td>{{ personnel.ville }}</td>
+                <td>{{ personnel.adresse }}</td>
+                <td>{{ personnel.codePostale }}</td>
+                 <td>{{ personnel.tel1 }}</td>
+                <td>{{ personnel.tel2 }}</td>
+                <td>{{ personnel.tel3 }}</td>
+                <td>{{ personnel.mail1 }}</td>
+                <td>{{ personnel.mail2 }}</td>
+                <td>{% if personnel.permisVoiture %}Yes{% else %}No{% endif %}</td> -->
+                <td>{{ personnel.profession }}</td>
+                <td>{{ personnel.societe }}</td>
+                <td>{{ personnel.niveauScolaire }}</td>
+<!--                 <td>{{ personnel.formations }}</td>
+                <td>{{ personnel.competances }}</td>
+                <td>{{ personnel.activitePrefere }}</td>
+                <td>{{ personnel.activitePrecedente }}</td>
+                <td>{{ personnel.tempsLibre }}</td>
+                <td>{{ personnel.plusADonner }}</td>
+                <td>{{ personnel.remarques }}</td>
+                <td>{{ personnel.facebook }}</td>
+                <td>{{ personnel.twitter }}</td>
+                <td>{{ personnel.skype }}</td> -->
+                <td>{{ personnel.dateInscription |date("d/m/Y")}}</td>
+                <!-- <td> {# {{ personnel.langue }} #}</td> -->
+<!--                 <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('personnel_show', { 'id': personnel.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('personnel_edit', { 'id': personnel.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td> -->
+				<td style="text-align:center">
+					<a href="{{ path('personnel_edit', { 'id': personnel.id }) }}">
+						<button class=" fa fa-edit btn btn-warning btn-xs" style="color:ghostwhite"></button>
+					</a>												
+				</td>				
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+<!--     <ul>
+        <li>
+            <a href="{{ path('personnel_new') }}">Create a new personnel</a>
+        </li>
+    </ul> -->
+</div>
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+		<script>		
+			$(document).ready(function(){
+				$('#articles_item').addClass("active");					
+
+				$(".tr_personnel_tab").click(function() {
+					window.location = $(this).data("href");
+			});
+		});
+	</script>
+{% endblock %}	
+

@@ -12,7 +12,11 @@ home_dashbord:
 
 home_article:
     resource: "@HomeBundle/Resources/config/routing/article.yml"
-    prefix:   /article  
+    prefix:   /article
+    
+home_personnel:
+    resource: "@HomeBundle/Resources/config/routing/personnel.yml"
+    prefix:   /personnel    
 
 # home_fournisseurs:
     # path:     /fournisseurs

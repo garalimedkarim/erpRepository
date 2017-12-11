@@ -1,0 +1,212 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}
+	{{ parent() }} 
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block title_tab %}
+	<!-- Breadcrumbs -->
+	<ol class="breadcrumb">
+		<!-- <li class="breadcrumb-item"> -->
+			<!-- <a href="#">Dashboard</a> -->
+		<!-- </li> -->
+		<li class="breadcrumb-item ">Mon Personnel</li>
+		<li class="breadcrumb-item active"> Personnel</li>
+	</ol>
+{% endblock %}
+{% block body %}
+
+{# {% form_theme edit_form 'form_table_layout_fournisseur.html.twig' %} #}
+
+<div class="container">
+
+		<form>
+			<fieldset disabled>
+				{{ include("HomeBundle:Personnel:form.html.twig") }}
+			</fieldset>	
+		</form>
+
+		<div class="form-group row">
+			<div class="col-sm-4"></div>
+			<div class="col-sm-5" >
+				<a class="btn btn-primary btn-sm" style="width:49%;float:left;margin-right:1%" href="{{ path('personnel_index') }}">Retour à la liste</a>
+				<a class="btn btn-warning btn-sm" style="width:24%;color:white;float:left;margin-right:1%" href="{{ path('personnel_edit', { 'id': id }) }}">Edit</a>
+				{{ form_start(delete_form) }}		
+						<input class="btn btn-danger btn-sm" style="width:24%;float:left;" type="submit" value="Delete">	
+				{{ form_end(delete_form) }} 
+			</div>
+		</div>			
+		
+</div>		
+
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+		<script>
+		$(document).ready(function(){
+			$('#articles_item').addClass("active");
+		});	
+		</script>
+{% endblock %}
+
+
+{#
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Personnel</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ personnel.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ personnel.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ personnel.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ personnel.sexe }}</td>
+            </tr>
+            <tr>
+                <th>Cin</th>
+                <td>{{ personnel.cin }}</td>
+            </tr>
+            <tr>
+                <th>Datenaissance</th>
+                <td>{{ personnel.dateNaissance|date('Y-m-d') }}</td>
+            </tr>
+            <tr>
+                <th>Nationalite</th>
+                <td>{{ personnel.nationalite }}</td>
+            </tr>
+            <tr>
+                <th>Gouvernerat</th>
+                <td>{{ personnel.gouvernerat }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ personnel.ville }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ personnel.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Codepostale</th>
+                <td>{{ personnel.codePostale }}</td>
+            </tr>
+            <tr>
+                <th>Tel1</th>
+                <td>{{ personnel.tel1 }}</td>
+            </tr>
+            <tr>
+                <th>Tel2</th>
+                <td>{{ personnel.tel2 }}</td>
+            </tr>
+            <tr>
+                <th>Tel3</th>
+                <td>{{ personnel.tel3 }}</td>
+            </tr>
+            <tr>
+                <th>Mail1</th>
+                <td>{{ personnel.mail1 }}</td>
+            </tr>
+            <tr>
+                <th>Mail2</th>
+                <td>{{ personnel.mail2 }}</td>
+            </tr>
+            <tr>
+                <th>Permisvoiture</th>
+                <td>{% if personnel.permisVoiture %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Profession</th>
+                <td>{{ personnel.profession }}</td>
+            </tr>
+            <tr>
+                <th>Societe</th>
+                <td>{{ personnel.societe }}</td>
+            </tr>
+            <tr>
+                <th>Niveauscolaire</th>
+                <td>{{ personnel.niveauScolaire }}</td>
+            </tr>
+            <tr>
+                <th>Formations</th>
+                <td>{{ personnel.formations }}</td>
+            </tr>
+            <tr>
+                <th>Competances</th>
+                <td>{{ personnel.competances }}</td>
+            </tr>
+            <tr>
+                <th>Activiteprefere</th>
+                <td>{{ personnel.activitePrefere }}</td>
+            </tr>
+            <tr>
+                <th>Activiteprecedente</th>
+                <td>{{ personnel.activitePrecedente }}</td>
+            </tr>
+            <tr>
+                <th>Tempslibre</th>
+                <td>{{ personnel.tempsLibre }}</td>
+            </tr>
+            <tr>
+                <th>Plusadonner</th>
+                <td>{{ personnel.plusADonner }}</td>
+            </tr>
+            <tr>
+                <th>Remarques</th>
+                <td>{{ personnel.remarques }}</td>
+            </tr>
+            <tr>
+                <th>Facebook</th>
+                <td>{{ personnel.facebook }}</td>
+            </tr>
+            <tr>
+                <th>Twitter</th>
+                <td>{{ personnel.twitter }}</td>
+            </tr>
+            <tr>
+                <th>Skype</th>
+                <td>{{ personnel.skype }}</td>
+            </tr>
+            <tr>
+                <th>Dateinscription</th>
+                <td>{{ personnel.dateInscription|date('Y-m-d') }}</td>
+            </tr>
+            <tr>
+                <th>Langue</th>
+            <!--  -->
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('personnel_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('personnel_edit', { 'id': personnel.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
+#}

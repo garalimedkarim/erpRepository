@@ -3,7 +3,9 @@
 namespace HomeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Personnel
  *
@@ -34,6 +36,13 @@ class Personnel
      * @ORM\Column(name="prenom", type="string", length=100)
      */
     private $prenom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sexe", type="string", length=50)
+     */
+    private $sexe;   
 
     /**
      * @var string
@@ -118,6 +127,13 @@ class Personnel
      * @ORM\Column(name="mail2", type="string", length=50, nullable=true)
      */
     private $mail2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="statut_sociale", type="string", length=50, nullable=true)
+     */
+    private $statutSociale;    
 
     /**
      * @var bool
@@ -218,6 +234,13 @@ class Personnel
     private $skype;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="statut_association", type="string", length=50, nullable=true)
+     */
+    private $statutAssociation;        
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_inscription", type="datetimetz")
@@ -225,12 +248,18 @@ class Personnel
     private $dateInscription;
 
     /**
-     * @var array
-     *
-     * @ORM\Column(name="langue", type="simple_array", nullable=true)
+     * @var collection
+     * Many Users have Many Languages.
+     * @ORM\ManyToMany(targetEntity="Language",cascade={"all"})
      */
-    private $langue;
+    private $languages;
 
+    public function __construct()
+    {
+        $this->addLanguage(new Language());
+        $this->dateNaissance = new \DateTime("1990-12-12");
+        $this->dateInscription = new \DateTime();
+    }
 
     /**
      * Get id
@@ -242,12 +271,19 @@ class Personnel
         return $this->id;
     }
 
+
     /**
-     * Set nom
-     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
      * @param string $nom
      *
-     * @return Personnel
+     * @return self
      */
     public function setNom($nom)
     {
@@ -257,21 +293,17 @@ class Personnel
     }
 
     /**
-     * Get nom
-     *
      * @return string
      */
-    public function getNom()
+    public function getPrenom()
     {
-        return $this->nom;
+        return $this->prenom;
     }
 
     /**
-     * Set prenom
-     *
      * @param string $prenom
      *
-     * @return Personnel
+     * @return self
      */
     public function setPrenom($prenom)
     {
@@ -281,21 +313,37 @@ class Personnel
     }
 
     /**
-     * Get prenom
-     *
      * @return string
      */
-    public function getPrenom()
+    public function getSexe()
     {
-        return $this->prenom;
+        return $this->sexe;
     }
 
     /**
-     * Set cin
+     * @param string $sexe
      *
+     * @return self
+     */
+    public function setSexe($sexe)
+    {
+        $this->sexe = $sexe;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCin()
+    {
+        return $this->cin;
+    }
+
+    /**
      * @param string $cin
      *
-     * @return Personnel
+     * @return self
      */
     public function setCin($cin)
     {
@@ -305,32 +353,6 @@ class Personnel
     }
 
     /**
-     * Get cin
-     *
-     * @return string
-     */
-    public function getCin()
-    {
-        return $this->cin;
-    }
-
-    /**
-     * Set dateNaissance
-     *
-     * @param \DateTime $dateNaissance
-     *
-     * @return Personnel
-     */
-    public function setDateNaissance($dateNaissance)
-    {
-        $this->dateNaissance = $dateNaissance;
-
-        return $this;
-    }
-
-    /**
-     * Get dateNaissance
-     *
      * @return \DateTime
      */
     public function getDateNaissance()
@@ -339,11 +361,29 @@ class Personnel
     }
 
     /**
-     * Set nationalite
+     * @param \DateTime $dateNaissance
      *
+     * @return self
+     */
+    public function setDateNaissance(\DateTime $dateNaissance)
+    {
+        $this->dateNaissance = $dateNaissance;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNationalite()
+    {
+        return $this->nationalite;
+    }
+
+    /**
      * @param string $nationalite
      *
-     * @return Personnel
+     * @return self
      */
     public function setNationalite($nationalite)
     {
@@ -353,21 +393,17 @@ class Personnel
     }
 
     /**
-     * Get nationalite
-     *
      * @return string
      */
-    public function getNationalite()
+    public function getGouvernerat()
     {
-        return $this->nationalite;
+        return $this->gouvernerat;
     }
 
     /**
-     * Set gouvernerat
-     *
      * @param string $gouvernerat
      *
-     * @return Personnel
+     * @return self
      */
     public function setGouvernerat($gouvernerat)
     {
@@ -377,21 +413,17 @@ class Personnel
     }
 
     /**
-     * Get gouvernerat
-     *
      * @return string
      */
-    public function getGouvernerat()
+    public function getVille()
     {
-        return $this->gouvernerat;
+        return $this->ville;
     }
 
     /**
-     * Set ville
-     *
      * @param string $ville
      *
-     * @return Personnel
+     * @return self
      */
     public function setVille($ville)
     {
@@ -401,21 +433,17 @@ class Personnel
     }
 
     /**
-     * Get ville
-     *
      * @return string
      */
-    public function getVille()
+    public function getAdresse()
     {
-        return $this->ville;
+        return $this->adresse;
     }
 
     /**
-     * Set adresse
-     *
      * @param string $adresse
      *
-     * @return Personnel
+     * @return self
      */
     public function setAdresse($adresse)
     {
@@ -425,21 +453,17 @@ class Personnel
     }
 
     /**
-     * Get adresse
-     *
      * @return string
      */
-    public function getAdresse()
+    public function getCodePostale()
     {
-        return $this->adresse;
+        return $this->codePostale;
     }
 
     /**
-     * Set codePostale
-     *
      * @param string $codePostale
      *
-     * @return Personnel
+     * @return self
      */
     public function setCodePostale($codePostale)
     {
@@ -449,21 +473,17 @@ class Personnel
     }
 
     /**
-     * Get codePostale
-     *
      * @return string
      */
-    public function getCodePostale()
+    public function getTel1()
     {
-        return $this->codePostale;
+        return $this->tel1;
     }
 
     /**
-     * Set tel1
-     *
      * @param string $tel1
      *
-     * @return Personnel
+     * @return self
      */
     public function setTel1($tel1)
     {
@@ -473,21 +493,17 @@ class Personnel
     }
 
     /**
-     * Get tel1
-     *
      * @return string
      */
-    public function getTel1()
+    public function getTel2()
     {
-        return $this->tel1;
+        return $this->tel2;
     }
 
     /**
-     * Set tel2
-     *
      * @param string $tel2
      *
-     * @return Personnel
+     * @return self
      */
     public function setTel2($tel2)
     {
@@ -497,21 +513,17 @@ class Personnel
     }
 
     /**
-     * Get tel2
-     *
      * @return string
      */
-    public function getTel2()
+    public function getTel3()
     {
-        return $this->tel2;
+        return $this->tel3;
     }
 
     /**
-     * Set tel3
-     *
      * @param string $tel3
      *
-     * @return Personnel
+     * @return self
      */
     public function setTel3($tel3)
     {
@@ -521,21 +533,17 @@ class Personnel
     }
 
     /**
-     * Get tel3
-     *
      * @return string
      */
-    public function getTel3()
+    public function getMail1()
     {
-        return $this->tel3;
+        return $this->mail1;
     }
 
     /**
-     * Set mail1
-     *
      * @param string $mail1
      *
-     * @return Personnel
+     * @return self
      */
     public function setMail1($mail1)
     {
@@ -545,21 +553,17 @@ class Personnel
     }
 
     /**
-     * Get mail1
-     *
      * @return string
      */
-    public function getMail1()
+    public function getMail2()
     {
-        return $this->mail1;
+        return $this->mail2;
     }
 
     /**
-     * Set mail2
-     *
      * @param string $mail2
      *
-     * @return Personnel
+     * @return self
      */
     public function setMail2($mail2)
     {
@@ -569,21 +573,37 @@ class Personnel
     }
 
     /**
-     * Get mail2
-     *
      * @return string
      */
-    public function getMail2()
+    public function getStatutSociale()
     {
-        return $this->mail2;
+        return $this->statutSociale;
     }
 
     /**
-     * Set permisVoiture
+     * @param string $statutSociale
      *
-     * @param boolean $permisVoiture
+     * @return self
+     */
+    public function setStatutSociale($statutSociale)
+    {
+        $this->statutSociale = $statutSociale;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isPermisVoiture()
+    {
+        return $this->permisVoiture;
+    }
+
+    /**
+     * @param bool $permisVoiture
      *
-     * @return Personnel
+     * @return self
      */
     public function setPermisVoiture($permisVoiture)
     {
@@ -593,21 +613,17 @@ class Personnel
     }
 
     /**
-     * Get permisVoiture
-     *
-     * @return bool
+     * @return string
      */
-    public function getPermisVoiture()
+    public function getProfession()
     {
-        return $this->permisVoiture;
+        return $this->profession;
     }
 
     /**
-     * Set profession
-     *
      * @param string $profession
      *
-     * @return Personnel
+     * @return self
      */
     public function setProfession($profession)
     {
@@ -617,21 +633,17 @@ class Personnel
     }
 
     /**
-     * Get profession
-     *
      * @return string
      */
-    public function getProfession()
+    public function getSociete()
     {
-        return $this->profession;
+        return $this->societe;
     }
 
     /**
-     * Set societe
-     *
      * @param string $societe
      *
-     * @return Personnel
+     * @return self
      */
     public function setSociete($societe)
     {
@@ -641,21 +653,17 @@ class Personnel
     }
 
     /**
-     * Get societe
-     *
      * @return string
      */
-    public function getSociete()
+    public function getNiveauScolaire()
     {
-        return $this->societe;
+        return $this->niveauScolaire;
     }
 
     /**
-     * Set niveauScolaire
-     *
      * @param string $niveauScolaire
      *
-     * @return Personnel
+     * @return self
      */
     public function setNiveauScolaire($niveauScolaire)
     {
@@ -665,21 +673,17 @@ class Personnel
     }
 
     /**
-     * Get niveauScolaire
-     *
      * @return string
      */
-    public function getNiveauScolaire()
+    public function getFormations()
     {
-        return $this->niveauScolaire;
+        return $this->formations;
     }
 
     /**
-     * Set formations
-     *
      * @param string $formations
      *
-     * @return Personnel
+     * @return self
      */
     public function setFormations($formations)
     {
@@ -689,21 +693,17 @@ class Personnel
     }
 
     /**
-     * Get formations
-     *
      * @return string
      */
-    public function getFormations()
+    public function getCompetances()
     {
-        return $this->formations;
+        return $this->competances;
     }
 
     /**
-     * Set competances
-     *
      * @param string $competances
      *
-     * @return Personnel
+     * @return self
      */
     public function setCompetances($competances)
     {
@@ -713,21 +713,17 @@ class Personnel
     }
 
     /**
-     * Get competances
-     *
      * @return string
      */
-    public function getCompetances()
+    public function getActivitePrefere()
     {
-        return $this->competances;
+        return $this->activitePrefere;
     }
 
     /**
-     * Set activitePrefere
-     *
      * @param string $activitePrefere
      *
-     * @return Personnel
+     * @return self
      */
     public function setActivitePrefere($activitePrefere)
     {
@@ -737,21 +733,17 @@ class Personnel
     }
 
     /**
-     * Get activitePrefere
-     *
      * @return string
      */
-    public function getActivitePrefere()
+    public function getActivitePrecedente()
     {
-        return $this->activitePrefere;
+        return $this->activitePrecedente;
     }
 
     /**
-     * Set activitePrecedente
-     *
      * @param string $activitePrecedente
      *
-     * @return Personnel
+     * @return self
      */
     public function setActivitePrecedente($activitePrecedente)
     {
@@ -761,21 +753,17 @@ class Personnel
     }
 
     /**
-     * Get activitePrecedente
-     *
      * @return string
      */
-    public function getActivitePrecedente()
+    public function getTempsLibre()
     {
-        return $this->activitePrecedente;
+        return $this->tempsLibre;
     }
 
     /**
-     * Set tempsLibre
-     *
      * @param string $tempsLibre
      *
-     * @return Personnel
+     * @return self
      */
     public function setTempsLibre($tempsLibre)
     {
@@ -785,21 +773,17 @@ class Personnel
     }
 
     /**
-     * Get tempsLibre
-     *
      * @return string
      */
-    public function getTempsLibre()
+    public function getPlusADonner()
     {
-        return $this->tempsLibre;
+        return $this->plusADonner;
     }
 
     /**
-     * Set plusADonner
-     *
      * @param string $plusADonner
      *
-     * @return Personnel
+     * @return self
      */
     public function setPlusADonner($plusADonner)
     {
@@ -809,21 +793,17 @@ class Personnel
     }
 
     /**
-     * Get plusADonner
-     *
      * @return string
      */
-    public function getPlusADonner()
+    public function getRemarques()
     {
-        return $this->plusADonner;
+        return $this->remarques;
     }
 
     /**
-     * Set remarques
-     *
      * @param string $remarques
      *
-     * @return Personnel
+     * @return self
      */
     public function setRemarques($remarques)
     {
@@ -833,21 +813,17 @@ class Personnel
     }
 
     /**
-     * Get remarques
-     *
      * @return string
      */
-    public function getRemarques()
+    public function getFacebook()
     {
-        return $this->remarques;
+        return $this->facebook;
     }
 
     /**
-     * Set facebook
-     *
      * @param string $facebook
      *
-     * @return Personnel
+     * @return self
      */
     public function setFacebook($facebook)
     {
@@ -857,21 +833,17 @@ class Personnel
     }
 
     /**
-     * Get facebook
-     *
      * @return string
      */
-    public function getFacebook()
+    public function getTwitter()
     {
-        return $this->facebook;
+        return $this->twitter;
     }
 
     /**
-     * Set twitter
-     *
      * @param string $twitter
      *
-     * @return Personnel
+     * @return self
      */
     public function setTwitter($twitter)
     {
@@ -881,21 +853,17 @@ class Personnel
     }
 
     /**
-     * Get twitter
-     *
      * @return string
      */
-    public function getTwitter()
+    public function getSkype()
     {
-        return $this->twitter;
+        return $this->skype;
     }
 
     /**
-     * Set skype
-     *
      * @param string $skype
      *
-     * @return Personnel
+     * @return self
      */
     public function setSkype($skype)
     {
@@ -905,32 +873,26 @@ class Personnel
     }
 
     /**
-     * Get skype
-     *
      * @return string
      */
-    public function getSkype()
+    public function getStatutAssociation()
     {
-        return $this->skype;
+        return $this->statutAssociation;
     }
 
     /**
-     * Set dateInscription
+     * @param string $statutAssociation
      *
-     * @param \DateTime $dateInscription
-     *
-     * @return Personnel
+     * @return self
      */
-    public function setDateInscription($dateInscription)
+    public function setStatutAssociation($statutAssociation)
     {
-        $this->dateInscription = $dateInscription;
+        $this->statutAssociation = $statutAssociation;
 
         return $this;
     }
 
     /**
-     * Get dateInscription
-     *
      * @return \DateTime
      */
     public function getDateInscription()
@@ -939,27 +901,60 @@ class Personnel
     }
 
     /**
-     * Set langue
+     * @param \DateTime $dateInscription
      *
-     * @param array $langue
+     * @return self
+     */
+    public function setDateInscription(\DateTime $dateInscription)
+    {
+        $this->dateInscription = $dateInscription;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Get permisVoiture
+     *
+     * @return boolean
+     */
+    public function getPermisVoiture()
+    {
+        return $this->permisVoiture;
+    }
+
+    /**
+     * Add language
+     *
+     * @param \HomeBundle\Entity\Language $language
      *
      * @return Personnel
      */
-    public function setLangue($langue)
+    public function addLanguage(\HomeBundle\Entity\Language $language)
     {
-        $this->langue = $langue;
+        $this->languages[] = $language;
 
         return $this;
     }
 
     /**
-     * Get langue
+     * Remove language
      *
-     * @return array
+     * @param \HomeBundle\Entity\Language $language
      */
-    public function getLangue()
+    public function removeLanguage(\HomeBundle\Entity\Language $language)
     {
-        return $this->langue;
+        $this->languages->removeElement($language);
+    }
+
+    /**
+     * Get languages
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLanguages()
+    {
+        return $this->languages;
     }
 }
-

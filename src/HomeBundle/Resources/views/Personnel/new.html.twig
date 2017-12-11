@@ -1,0 +1,118 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}
+	{{ parent() }} 
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+	<style>
+
+	</style>
+{% endblock %}
+
+{% block title_tab %}
+	<!-- Breadcrumbs -->
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item ">Mon Personnel</li>
+		<li class="breadcrumb-item active">Ajouter Personnel</li>
+	</ol>
+{% endblock %}
+{% block body %}
+    <h1>Personnel creation</h1>
+<div class="container">
+
+<!-- 	{{ dump(form.children)}} -->
+<br>
+{{ form_start(form) }}
+	{{ include("HomeBundle:Personnel:form.html.twig") }}	
+		<br>
+		<div class="form-group row">
+			<div class="col-sm-2"> </div>
+			<div class="col-sm-2">
+				<a href="{{ path('personnel_index') }}" >
+					<span class="btn btn-primary btn-sm " style="width:100%;">Retour</span>
+				</a>			
+			</div>
+			<div class="col-sm-5" >
+				<input class="btn btn-success btn-sm" style="width:100%;" type="submit" value="Create" />
+			</div>
+		</div>		
+
+{{ form_end(form) }}
+
+</div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+		<script>
+		$(document).ready(function(){
+			$('#personnel_item').addClass("active");
+		});	
+		
+		$(function() {
+			// Remove button click
+			$(document).on(
+				'click',
+				'[data-role="dynamic-fields"] > .dynamic-fields [data-role="remove"]',
+				function(e) {
+					if( $('.dynamic-fields').length > 1 ){
+						e.preventDefault();
+						$(this).closest('.dynamic-fields').parent().remove();
+						redo();
+					}	
+				}
+			);
+			// Add button click
+			$(document).on(
+				'click',
+				'[data-role="dynamic-fields"] > .dynamic-fields [data-role="add"]',
+				function(e) {
+					if( $('.dynamic-fields').length < 6 ){
+						e.preventDefault();
+						var container = $(this).closest('[data-role="dynamic-fields"]');
+						new_field_group = container.children().filter('.dynamic-fields:first-child').parent().clone();
+						new_field_group.find('.field_x').css("margin-top","15px");
+						new_field_group.find('input').each(function(){
+							$(this).val('');
+						});
+						container.parent().append(new_field_group);
+
+						redo();
+					}	
+				}
+			);
+		});	
+		
+		function redo(){
+			var container = $('#languages');
+
+			container.find('.btn :not(:last)').removeClass("fa-plus").addClass("fa-minus");
+			container.find('.btn :not(:last)').parent().attr("data-role","remove").addClass('btn-danger').removeClass("btn-primary");
+			
+			container.find('.btn :last').removeClass("fa-minus").addClass("fa-plus");
+			
+			container.find('.btn :last').parent().attr("data-role","add").addClass('btn-primary').removeClass("btn-danger");
+
+			container.find('.dynamic-fields :first').css("margin-top","0px");
+			
+			var i = 0;
+			var j = 0;
+			container.find('select').each(function () {
+				if ( ($(this).attr("id")).indexOf("level") >=0 ){
+					$(this).attr("id","homebundle_personnel_languages_"+i+"_level");
+					$(this).attr("name","homebundle_personnel[languages]["+i+"][level]");
+					i = i+1;
+				}else{
+					$(this).attr("id","homebundle_personnel_languages_"+j+"_language");
+					$(this).attr("name","homebundle_personnel[languages]["+j+"][language]");
+					j = j+1;
+				}
+			});    
+			
+		}
+		</script>
+{% endblock %}
